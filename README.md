@@ -1,8 +1,11 @@
 # Best Thing Ever
 
 Paul Dynowski @pdynowski
+
 Logan Bresnahan @loganbresnahan
+
 Caroline Kenworthy @kenworthyc
+
 Tom McHenry @tommchenry
 
 Best Thing Ever is a project designed to settle (or create) arguments amongst friends. It will deliver a pair of artists
