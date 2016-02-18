@@ -1,4 +1,4 @@
-# Best Thing Ever
+# Best Thing Ever ![Travis-CI](https://travis-ci.org/pdynowski/best-thing-ever.svg?branch=master)
 
 Paul Dynowski @pdynowski
 
