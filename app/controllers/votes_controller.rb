@@ -9,4 +9,12 @@ class VotesController < ApplicationController
     @vote = Vote.new()
   end
 
+  def create
+    @vote = Vote.new(winner_id: params[:winner], loser_id: params[:loser])
+    if @vote.save
+      redirect_to root_path
+    else
+      render new
+    end
+  end
 end
