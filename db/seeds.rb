@@ -10,7 +10,8 @@ require 'net/http'
 require 'json'
 
 (0..9).each do |count|
-  url = "http://developer.echonest.com/api/v4/artist/search?api_key=#{ENV["ECHONEST_API_KEY"]}&format=json&start=#{count * 100}&results=100&sort=familiarity-desc"
+  url = "http://developer.echonest.com/api/v4/artist/search?api_key=#{Rails.application.secrets.echonest_api_key}&format=json&start=#{count * 100}&results=100&sort=familiarity-desc"
+  puts "URL -----------------------------> #{url}"
   uri = URI(url)
   data = Net::HTTP.get(uri)
   parsed = JSON.parse(data)
