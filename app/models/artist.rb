@@ -11,19 +11,20 @@ class Artist < ActiveRecord::Base
       Artist.all.shuffle[1]
     end
 
-    def assign_elo_points(artists)
+    def assign_elo_points(voted_artists)
       k_factor = 32
-      winner_expectation = calc_expectation(artists)
+      winner_expectation = calc_expectation(voted_artists)
       loser_expectation = 1 - winner_expectation
-      artists[:winner].elo_score += (k_factor * (1 - winner_expectation)).to_i
-      artists[:loser].elo_score += (k_factor * (0 - loser_expectation)).to_i
+      voted_artists[:winner] += (k_factor * (1 - winner_expectation)).to_i
+      voted_artists[:loser] += (k_factor * (0 - loser_expectation)).to_i
+      return voted_artists
     end
 
     private
 
-    def calc_expectation(artists)
-      winner_score = artists[:winner].elo_score
-      loser_score = artists[:loser].elo_score
+    def calc_expectation(voted_artists)
+      winner_score = voted_artists[:winner]
+      loser_score = voted_artists[:loser]
       expectation_denominator =
         1 + 10**((loser_score - winner_score)/400.0)
       return 1.0/expectation_denominator
