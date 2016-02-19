@@ -19,3 +19,5 @@ require 'json'
     Artist.create!(name: artist["name"], elo_score: 1500)
   end
 end
+
+Vote.create!(winner_id: 1, loser_id: 2)
