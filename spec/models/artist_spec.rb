@@ -47,6 +47,20 @@ describe Artist do
     end
   end
 
+  describe "#score" do
+    it "should return a hash with keys of artist id's" do
+      artist_elo_hash = Artist.score
+      expect(artist_elo_hash.keys.first).to be > 0
+    end
+
+    it "should return a hash with values of elo scores" do
+      artist_elo_hash = Artist.score
+      expect(artist_elo_hash.values.sample).to be > 800
+      expect(artist_elo_hash.values.sample).to be < 3000
+    end
+
+  end
+
   describe "#get_random_artist" do
     it "should return a random artist" do
       expect(Artist.get_random_artist).to be_an(Artist)
