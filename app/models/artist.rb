@@ -11,6 +11,38 @@ class Artist < ActiveRecord::Base
       Artist.all.shuffle[1]
     end
 
+    def score
+      artist_hash = {}
+
+      Vote.all.each do |vote|
+        voted_artists = {
+          winner: vote.winner_id,
+          loser: vote.loser_id
+        }
+
+        winner_id = voted_artists[:winner]
+        loser_id = voted_artists[:loser]
+
+        unless artist_hash.has_key?(winner_id)
+          artist_hash[winner_id] = 1500
+        end
+
+        unless artist_hash.has_key?(loser_id)
+          artist_hash[loser_id] = 1500
+        end
+
+        new_scores = Artist.assign_elo_points({
+          winner: artist_hash[winner_id],
+          loser: artist_hash[loser_id]}
+          )
+
+        artist_hash[winner_id] = new_scores[:winner]
+        artist_hash[loser_id] = new_scores[:loser]
+      end
+        return artist_hash
+
+    end
+
     def assign_elo_points(voted_artists)
       k_factor = 32
       winner_expectation = calc_expectation(voted_artists)
