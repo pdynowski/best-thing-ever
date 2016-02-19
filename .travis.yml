@@ -1,12 +1,15 @@
 language: ruby
 rvm:
-  - 2.0.0
+- 2.0.0
 env:
+  matrix:
   - DB=postgresql
+  global:
+    secure: joRSY2rUqUD5ni0RmRR83gcObe/QRPkmNyPSMouWj6KqSofVEj2JZhrdvR5bkeycJmN7OE/A9/Oh5fuKaBcCSXZSWn0of2SD4sxNk3sRxkod/LjAImlJ/YhYuOeBWAR5hj1iyMZ725lTXGn63/MOQ00HKjgn1iRUoO86ouDEJtpcbj8Qgd96cBJgF5cf4Io65kmOrNpD6N8y+CmBFv1N5X8tskfcFT9h4DSgUzvmg/bKknVnTUtGUgxs8HiGOTNVgQoptjWpfoxHZxJM+wIo/+3QIDj8lWHZn+C0vfOCT+vecY4ZgTK/b3rUygf9+NYtLrtcbAC+XWlxlktsTirg7QpWx2+mzcPGJuAAIP98iKIuxfHwgVoV25lCD7fP1dGuO0iW77GKbbxyFF+5A5A5ZekAxvVzZIRlOEdzNQYP3ZXaLt3cmNtSH2lsAc/vNB5sGJZlN4cr6pnupZn7lnfh8D3Pg5SJj87htrbyqxYOPmVzpagtqwEB6BCJUmpWpQ+ICVKvgeo9AsUZk/80MEJDHQCCfW1bqv5hm8O8lpSbaRR4R5nXAS3RgJgvIHf+4Zj+u6RXREksgqMc1OCLr6brwz4TopZ0mwGLGZ9cOYTMUa0qjPgFlddCP3JSlYj9DtRX8otxbpjA74GUk+XByw3uNH/r2BGp6nAG1HFTGnAkR1M=
 script:
-  - bundle exec rake spec
+- bundle exec rake spec
 before_script:
-  - bundle exec rake db:create RAILS_ENV=test
-  - bundle exec rake db:migrate
-  - bundle exec rake db:test:prepare
-  - bundle exec rake db:seed
+- bundle exec rake db:create RAILS_ENV=test
+- bundle exec rake db:migrate
+- bundle exec rake db:test:prepare
+- bundle exec rake db:seed

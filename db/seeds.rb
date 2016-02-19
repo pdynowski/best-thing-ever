@@ -6,24 +6,18 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Artist.create!(name: "Stevie Wonder", elo_score: 1500)
-Artist.create!(name: "Radiohead", elo_score: 1500)
-Artist.create!(name: "The Beatles", elo_score: 1500)
-Artist.create!(name: "David Bowie", elo_score: 1500)
-Artist.create!(name: "The Rolling Stones", elo_score: 1500)
-Artist.create!(name: "Steely Dan", elo_score: 1500)
-Artist.create!(name: "Sufjan Stevens", elo_score: 1500)
-Artist.create!(name: "Prince", elo_score: 1500)
-Artist.create!(name: "Guided By Voices", elo_score: 1500)
-Artist.create!(name: "Beyonce", elo_score: 1500)
+require 'net/http'
+require 'json'
 
-Vote.create!(winner_id: 1, loser_id: 3)
-Vote.create!(winner_id: 1, loser_id: 4)
-Vote.create!(winner_id: 4, loser_id: 9)
-Vote.create!(winner_id: 5, loser_id: 6)
-Vote.create!(winner_id: 4, loser_id: 2)
-Vote.create!(winner_id: 4, loser_id: 7)
-Vote.create!(winner_id: 7, loser_id: 5)
+(0..9).each do |count|
+  url = "http://developer.echonest.com/api/v4/artist/search?api_key=#{Rails.application.secrets.echonest_api_key}&format=json&start=#{count * 100}&results=100&sort=familiarity-desc"
+  puts "URL -----------------------------> #{url}"
+  uri = URI(url)
+  data = Net::HTTP.get(uri)
+  parsed = JSON.parse(data)
+  parsed["response"]["artists"].each do |artist|
+    Artist.create!(name: artist["name"], elo_score: 1500)
+  end
+end
+
 Vote.create!(winner_id: 1, loser_id: 2)
-Vote.create!(winner_id: 9, loser_id: 2)
-Vote.create!(winner_id: 8, loser_id: 7)
