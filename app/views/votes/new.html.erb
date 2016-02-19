@@ -1,8 +1,12 @@
+<%= link_to votes_path(winner: @option1.id, loser: @option2.id), method: :post, :class => "option1-vote" do %>
 <div id="option1">
   <img src="http://lorempixel.com/400/200">
   <%= @option1.name %>
 </div>
+<%end%>
+<%=link_to votes_path(winner: @option2.id, loser: @option1.id), method: :post, :class => "option2-vote" do%>
 <div id="option2">
   <img src="http://lorempixel.com/400/200">
   <%= @option2.name %>
 </div>
+<%end%>
