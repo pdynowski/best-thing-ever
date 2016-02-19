@@ -18,4 +18,30 @@ feature 'User voting on a faceoff' do
     expect(page).to have_content('Top Scores')
   end
 
+  scenario 'when user vists homepage, they see a vote link for artist 1' do
+    visit '/'
+    expect(page).to have_selector('.option1-vote')
+  end
+
+  scenario 'when user vists homepage, they see a vote link for artist 2' do
+    visit '/'
+    expect(page).to have_selector('.option2-vote')
+  end
+
+  scenario 'when user clicks on artist1, it creates a vote
+    with artist1 as winner and artist2 as loser' do
+    visit '/'
+    allow_any_instance_of(Vote).to receive(:winner_id).and_return(1)
+    allow_any_instance_of(Vote).to receive(:loser_id).and_return(2)
+    expect { find('.option1-vote').click }.to change(Vote, :count).by(1)
+    expect(Vote.last.winner_id).to eq (1)
+    expect(Vote.last.loser_id).to eq (2)
+  end
+
+  scenario 'when user clicks on artist2, it creates a vote
+    with artist1 as winner and artist1 as loser' do
+    visit '/'
+    expect { find('.option2-vote').click }.to change(Vote, :count).by(1)
+  end
+
 end

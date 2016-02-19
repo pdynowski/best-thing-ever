@@ -7,48 +7,58 @@ describe Artist do
   it {should have_many(:losing_votes).class_name("Vote")}
 
   describe "#assign_elo_points at even start" do
-    let(:artist_1) { Artist.new(name: "xxx", elo_score: 1500)}
-    let(:artist_2) { Artist.new(name: "yyy", elo_score: 1500)}
     it "should assign the correct number of points
       to the winner" do
-      Artist.assign_elo_points({winner: artist_1, loser: artist_2})
-      expect(artist_1.elo_score).to eq 1516
+      new_scores = Artist.assign_elo_points({winner: 1500, loser: 1500})
+      expect(new_scores[:winner]).to eq 1516
     end
     it "should assign the correct number of points
       to the loser" do
-      Artist.assign_elo_points({winner: artist_1, loser: artist_2})
-      expect(artist_2.elo_score).to eq 1484
+      new_scores = Artist.assign_elo_points({winner: 1500, loser: 1500})
+      expect(new_scores[:loser]).to eq 1484
     end
   end
 
   describe "#assign_elo_points at uneven start if higher wins" do
-    let(:artist_1) { Artist.new(name: "xxx", elo_score: 1600)}
-    let(:artist_2) { Artist.new(name: "yyy", elo_score: 1500)}
     it "should assign the correct number of points
       to the winner if 1 wins" do
-      Artist.assign_elo_points({winner: artist_1, loser: artist_2})
-      expect(artist_1.elo_score).to eq 1611
+      new_scores = Artist.assign_elo_points({winner: 1600, loser: 1500})
+      expect(new_scores[:winner]).to eq 1611
     end
     it "should assign the correct number of points
       to the loser" do
-      Artist.assign_elo_points({winner: artist_1, loser: artist_2})
-      expect(artist_2.elo_score).to eq 1489
+      new_scores = Artist.assign_elo_points({winner: 1600, loser: 1500})
+      expect(new_scores[:loser]).to eq 1489
     end
   end
 
   describe "#assign_elo_points at uneven start if higher loses" do
-    let(:artist_1) { Artist.new(name: "xxx", elo_score: 1600)}
-    let(:artist_2) { Artist.new(name: "yyy", elo_score: 1500)}
+    player1, player2 = 1600, 1500
+
     it "should assign the correct number of points
       to the winner if 1 wins" do
-      Artist.assign_elo_points({winner: artist_2, loser: artist_1})
-      expect(artist_1.elo_score).to eq 1580
+      new_scores = Artist.assign_elo_points({winner: player2, loser: player1})
+      expect(new_scores[:loser]).to eq 1580
     end
     it "should assign the correct number of points
       to the loser" do
-      Artist.assign_elo_points({winner: artist_2, loser: artist_1})
-      expect(artist_2.elo_score).to eq 1520
+      new_scores = Artist.assign_elo_points({winner: player2, loser: player1})
+      expect(new_scores[:winner]).to eq 1520
     end
+  end
+
+  describe "#score" do
+    it "should return a hash with keys of artist id's" do
+      artist_elo_hash = Artist.score
+      expect(artist_elo_hash.keys.first).to be > 0
+    end
+
+    it "should return a hash with values of elo scores" do
+      artist_elo_hash = Artist.score
+      expect(artist_elo_hash.values.sample).to be > 800
+      expect(artist_elo_hash.values.sample).to be < 3000
+    end
+
   end
 
   describe "#get_random_artist" do
