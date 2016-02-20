@@ -9,8 +9,8 @@
   <h1>Edit your profile.</h1>
   <%= form_for :user, method: 'patch', url: user_path do |f| %>
     <p>
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
+      <%= f.label :username %><br>
+      <%= f.text_field :username %>
     </p>
     <p>
       <%= f.label :email %><br>
