@@ -4,7 +4,7 @@
 
 <div>
   <h1>Edit your profile.</h1>
-  <%= form_for @user, method: 'patch', url: @user do |f| %>
+  <%= form_for :user, method: 'patch', url: user_path do |f| %>
     <p>
       <%= f.label :name %><br>
       <%= f.text_field :name %>
