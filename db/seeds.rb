@@ -22,3 +22,4 @@ end
 (0..100).each do |num|
   Vote.create!(winner_id: rand(1..500), loser_id: rand(501..1000))
 end
+
