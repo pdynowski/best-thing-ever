@@ -8,13 +8,13 @@ feature 'User voting on a faceoff' do
 
   scenario 'when user looks for artists on homepage' do
     visit '/'
-    expect(page).to have_selector('#option1>img')
-    expect(page).to have_selector('#option2>img')
+    expect(page).to have_selector('.option1-vote')
+    expect(page).to have_selector('.option2-vote')
   end
 
   scenario 'when user visits homepage, they see a navbar' do
     visit '/'
-    expect(page).to have_selector('.main-nav')
+    expect(page).to have_selector('.pure-menu')
     expect(page).to have_content('Top Scores')
   end
 
