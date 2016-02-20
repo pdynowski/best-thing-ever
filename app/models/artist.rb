@@ -8,9 +8,9 @@ class Artist < ActiveRecord::Base
 
   def get_image_url
     if self.image_url == nil
-      artist_name = self.name
-      artist_name.gsub!(/\s/,'+')
+      artist_name = self.name.gsub(/\s/,'+')
       artist_name.downcase
+      puts Rails.application.secrets.lastfm_api_key
       url = "http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=#{artist_name}&api_key=#{Rails.application.secrets.lastfm_api_key}&format=json"
       uri = URI(url)
       data = Net::HTTP.get(uri)
