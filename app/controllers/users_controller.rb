@@ -41,6 +41,7 @@ class UserController < ApplicationController
     if user.destroy
       reset_session
       flash[:user_successful_destroy] = "User account deleted."
+      redirect_to 'new'
     else
       flash[:user_error_destroy] = user.errors.full_messages.to_sentence
     end
