@@ -5,17 +5,17 @@ class Artist < ActiveRecord::Base
   has_many :winning_votes, foreign_key: :winner_id, class_name: 'Vote'
   has_many :losing_votes, foreign_key: :loser_id, class_name: 'Vote'
 
-
   def get_image_url
     if self.image_url == nil
-      artist_name = self.name
-      artist_name.gsub!(/\s/,'+')
+      artist_name = URI::encode(self.name.gsub(/\s/,'+'))
       artist_name.downcase
       url = "http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=#{artist_name}&api_key=#{Rails.application.secrets.lastfm_api_key}&format=json"
       uri = URI(url)
       data = Net::HTTP.get(uri)
       parsed = JSON.parse(data)
-      self.image_url =  parsed["artist"]["image"][-3]["#text"]
+      self.image_url =  parsed["artist"]["image"][-3]["#text"].to_s
+      self.save
+      self.image_url
     else
       self.image_url
     end

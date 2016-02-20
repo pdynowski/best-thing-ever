@@ -14,18 +14,34 @@
 }
 
 .vote-button{
-  margin-top: 85%;
+  margin: 25% auto;
 }
 
-#winner-picture, #loser-picture {
+#option1>img, #option2>img {
+  margin-top: 20%;
+}
+
+#winner-photo, #loser-photo {
   width: 100px;
   height: 100px;
-  background-color: blanchedalmond;
+}
+
+#winner-photo {
+  border: solid #9FE695 5px;
+}
+
+#loser-photo {
+  border: solid #E69595 5px;
+}
+
+.last-photo {
+  margin-top: 5px;
+  width: 90px;
+  height: 90px;
 }
 
 .prev-winner, .prev-loser {
   text-align: center;
-  height: 100px;
 }
 
 p {
