@@ -5,7 +5,6 @@ class Artist < ActiveRecord::Base
   has_many :winning_votes, foreign_key: :winner_id, class_name: 'Vote'
   has_many :losing_votes, foreign_key: :loser_id, class_name: 'Vote'
 
-
   def get_image_url
     if self.image_url == nil
       artist_name = URI::encode(self.name.gsub(/\s/,'+'))
@@ -14,8 +13,9 @@ class Artist < ActiveRecord::Base
       uri = URI(url)
       data = Net::HTTP.get(uri)
       parsed = JSON.parse(data)
-      puts parsed
-      self.image_url =  parsed["artist"]["image"][-3]["#text"]
+      self.image_url =  parsed["artist"]["image"][-3]["#text"].to_s
+      self.save
+      self.image_url
     else
       self.image_url
     end
