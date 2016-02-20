@@ -44,6 +44,7 @@ class UserController < ApplicationController
       redirect_to 'new'
     else
       flash[:user_error_destroy] = user.errors.full_messages.to_sentence
+      render :edit
     end
   end
 
