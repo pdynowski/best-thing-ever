@@ -7,19 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header>
-    <div class="brand">
-      Best Thing Ever
-    </div>
-    <nav class="main-nav">
-      <ul>
-        <li>Top Scores</li>
-        <li>Vote Again</li>
+  <header class="pure-menu pure-menu-horizontal">
+    <a href="/" class="pure-menu-heading pure-menu-link">Best Thing Ever</a>
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Top Scores</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Vote Again</a></li>
+        <li class="pure-menu-item"><a href="#" class="pure-menu-link">&#9776;</a></li>
       </ul>
-    </nav>
   </header>
-  <div class="container">
-    <%= yield %>
-  </div>
+
+  <%= yield %>
 </body>
 </html>
