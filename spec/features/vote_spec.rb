@@ -18,14 +18,20 @@ feature 'User voting on a faceoff' do
     expect(page).to have_content('Top Scores')
   end
 
-  scenario 'when user vists homepage, they see a vote link for artist 1' do
+  scenario 'when user visits homepage, they see a vote link for artist 1' do
     visit '/'
     expect(page).to have_selector('.option1-vote')
   end
 
-  scenario 'when user vists homepage, they see a vote link for artist 2' do
+  scenario 'when user visits homepage, they see a vote link for artist 2' do
     visit '/'
     expect(page).to have_selector('.option2-vote')
+  end
+
+  scenario 'when users visits homepage for the first time, they do not see previous scores' do
+    visit '/'
+    expect(page).to_not have_selector('.prev-winner')
+    expect(page).to_not have_selector('.prev-loser')
   end
 
   scenario 'when user clicks on artist1, it creates a vote
@@ -36,6 +42,8 @@ feature 'User voting on a faceoff' do
     expect { find('.option1-vote').click }.to change(Vote, :count).by(1)
     expect(Vote.last.winner_id).to eq (1)
     expect(Vote.last.loser_id).to eq (2)
+    expect(page).to have_selector('.prev-winner')
+    expect(page).to have_selector('.prev-loser')
   end
 
   scenario 'when user clicks on artist2, it creates a vote
