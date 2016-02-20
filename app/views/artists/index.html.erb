@@ -1,0 +1,6 @@
+<h1 class="artist-rankings">Best Thing Ever Top 40</h1>
+<ol>
+<% @artists.each do |artist| %>
+  <li class="artist-row"><span class="artist-name"><%= artist[0] %></span><span class="artist-score"> <%= artist[1] %> </span></li>
+<% end %>
+</ol>
