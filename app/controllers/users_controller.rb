@@ -28,6 +28,7 @@ class UserController < ApplicationController
       redirect_to user_path(user)
     else
       flash[:user_update_error] = user.errors.full_messages.to_sentence
+      render :edit
     end
   end
 
