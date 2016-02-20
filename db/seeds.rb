@@ -20,4 +20,6 @@ require 'json'
   end
 end
 
-Vote.create!(winner_id: 1, loser_id: 2)
+(0..100).each do |num|
+  Vote.create!(winner_id: rand(0..1000), loser_id: rand(0..1000))
+end
