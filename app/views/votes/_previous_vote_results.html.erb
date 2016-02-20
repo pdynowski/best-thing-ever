@@ -1,14 +1,20 @@
-<div id="previous-vote" class="pure-u-1-6">
-  <div class="previous-winner">
-    <div class="score">
-      <%= @prev_winner.name %>
-      <%= @prev_winner_score %>
-    </div>
+
+<div class="winner pure-u-1-2">
+  <div class="pure-u-1-3 vert-cent">
+    <p><%= @prev_winner.name %></p>
   </div>
-  <div class="previous-loser">
-    <div class="score">
-      <%= @prev_loser.name %>
-      <%= @prev_loser_score %>
-    </div>
+  <div class="pure-u-1-3" id="winner-picture"></div>
+  <div class="pure-u-1-3 vert-cent">
+    <p><%= @prev_winner_score %></p>
+  </div>
+</div>
+
+<div class="loser pure-u-1-2">
+  <div class="pure-u-1-3 vert-cent">
+    <p><%= @prev_loser_score %></p>
+  </div>
+  <div class="pure-u-1-3" id="loser-picture"></div>
+  <div class="pure-u-1-3 vert-cent">
+    <p><%= @prev_loser.name %></p>
   </div>
 </div>
