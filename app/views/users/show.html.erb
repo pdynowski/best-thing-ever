@@ -1,0 +1,9 @@
+<h1><%= current_user.username %>'s Profile</h1>
+
+
+<!-- Group stuff here? -->
+
+
+<% if current_user %>
+  <%= link_to 'Edit Your Profile', edit_user_path(current_user) %>
+<% end %>

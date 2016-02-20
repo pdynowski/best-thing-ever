@@ -1,0 +1,7 @@
+<% unless current_user %>
+  <li><%= link_to 'Login', new_sessions_path %></li>
+  <li><%= link_to 'Register' new_user_path %></li>
+<% else %>
+  <li><%= link_to "#{current_user.username}", user_path(current_user) %></li>
+  <li><%= link_to 'Logout', session_path(current_user), method: :delete %></li>
+<% end %>

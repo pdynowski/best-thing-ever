@@ -1,0 +1,27 @@
+<% if flash[:user_create_error] %>
+  <div class="error"><%= flash[:user_create_error] %></div>
+<% end %>
+<% if flash[:user_successful_destroy] %>
+  <div class="error"><%= flash[:user_successful_destroy] %></div>
+<% end %>
+
+<div>
+  <h1>Register</h1>
+  <%= form_for :user, url: users_path do |f| %>
+    <p>
+      <%= f.label :username %><br>
+      <%= f.text_field :username %>
+    </p>
+    <p>
+      <%= f.label :email %><br>
+      <%= f.email_field :email %>
+    </p>
+    <p>
+      <%= f.label :password %><br>
+      <%= f.password_field :password %>
+    </p>
+    <p>
+      <%= f.submit :Register %>
+    </p>
+  <% end %>
+</div>

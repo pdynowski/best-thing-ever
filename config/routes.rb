@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   resources :votes, only: [:new, :create]
   resources :artists, only: [:index]
   root 'votes#new'
