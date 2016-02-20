@@ -14,10 +14,14 @@
 }
 
 .vote-button{
-  margin-top: 85%;
+  margin: 25% auto;
 }
 
-#winner-picture, #loser-picture {
+#option1>img, #option2>img {
+  margin-top: 20%;
+}
+
+#winner-picture, #loser-picture, .last-photo {
   width: 100px;
   height: 100px;
   background-color: blanchedalmond;
