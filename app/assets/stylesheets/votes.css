@@ -1,18 +1,18 @@
-.option1-vote {
-  width:100%;
-  background-image: url("http://rollingout.com/wp-content/uploads/2013/12/Beyonce-Album-4-Outtake-beyonce-32623421-1280-960.jpg");
-  background-position: 50%;
+.option1-vote, .option2-vote {
+  width: 100%;
   min-height: 800px;
-  text-align:center;
+  background-position: 50%;
+  text-align: center;
+}
+
+.option1-vote {
+  background-image: url("http://rollingout.com/wp-content/uploads/2013/12/Beyonce-Album-4-Outtake-beyonce-32623421-1280-960.jpg");
 }
 
 .option2-vote {
-  width:100%;
   background-image: url("http://vam.ac.uk/__data/assets/image/0011/172559/bowie_aladin_sane_1000px.jpg");
-  min-height: 800px;
-  background-position: 50%;
-  text-align:center;
 }
+
 .vote-button{
   margin-top: 85%;
 }
@@ -23,16 +23,9 @@
   background-color: blanchedalmond;
 }
 
-.prev-vote {
+.prev-winner, .prev-loser {
   text-align: center;
-}
-
-.winner, .loser {
   height: 100px;
-}
-
-.vert-cent {
-  height:100px;
 }
 
 p {
