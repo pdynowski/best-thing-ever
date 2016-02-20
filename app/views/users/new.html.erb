@@ -1,6 +1,9 @@
 <% if flash[:user_create_error] %>
   <div class="error"><%= flash[:user_create_error] %></div>
 <% end %>
+<% if flash[:user_successful_destroy] %>
+  <div class="error"><%= flash[:user_successful_destroy] %></div>
+<% end %>
 
 <div>
   <h1>Register</h1>

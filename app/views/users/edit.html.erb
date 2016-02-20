@@ -1,6 +1,9 @@
 <% if flash[:user_update_error] %>
   <div class="error"><%= flash[:user_update_error] %></div>
 <% end %>
+<% if flash[:user_error_destroy] %>
+  <div class="error"><%= flash[:user_error_destroy] %></div>
+<% end %>
 
 <div>
   <h1>Edit your profile.</h1>
