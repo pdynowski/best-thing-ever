@@ -1,5 +1,9 @@
 
 <div class="pure-g">
+  <% if @prev_winner %>
+    <%= render partial: "votes/previous_vote_results" %>
+  <% end %>
+
   <%= link_to votes_path(winner: @option1.id, loser: @option2.id), method: :post, :class => "option1-vote pure-u-1-2" do %>
     <div id="option1">
       <%= button_to "#{@option1.name}", votes_path(winner: @option1.id, loser: @option2.id), method: :post, :class => "pure-button pure-button-primary vote-button" %>
