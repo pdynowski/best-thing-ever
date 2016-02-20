@@ -8,14 +8,14 @@
 <div class="pure-g">
   <%= link_to votes_path(winner: @option1.id, loser: @option2.id), method: :post, :class => "option1-vote pure-u-1-2" do %>
     <div id="option1">
-      <img src="<%=@option1.get_image_url%>">
+      <img class="current-photo" src="<%=@option1.get_image_url%>">
       <%= button_to "#{@option1.name}", votes_path(winner: @option1.id, loser: @option2.id), method: :post, :class => "pure-button pure-button-primary vote-button" %>
     </div>
 <%end%>
 ​
     <%=link_to votes_path(winner: @option2.id, loser: @option1.id), method: :post, :class => "option2-vote pure-u-1-2" do%>
       <div id="option2">
-        <img src="<%=@option2.get_image_url%>">
+        <img class="current-photo" src="<%=@option2.get_image_url%>">
         <%= button_to "#{@option2.name}", votes_path(winner: @option2.id, loser: @option1.id), method: :post, :class => "pure-button pure-button-primary vote-button" %>
       </div>
     <%end%>
