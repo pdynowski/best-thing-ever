@@ -1,0 +1,26 @@
+<% if flash[:user_update_error] %>
+  <div class="error"><%= flash[:user_update_error] %></div>
+<% end %>
+
+<div>
+  <h1>Edit your profile.</h1>
+  <%= form_for @user, method: 'patch', url: @user do |f| %>
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :email %><br>
+      <%= f.email_field :email %>
+    </p>
+    <p>
+      <%= f.label :password %><br>
+      <%= f.password_field :password %>
+    </p>
+    <p>
+      <%= f.submit :Update %>
+    </p>
+  <% end %>
+
+  <div><%= button_to 'Delete', method: :delete, data: { confirm: "Are your sure you want to delete your account? "} %></div>
+</div>
