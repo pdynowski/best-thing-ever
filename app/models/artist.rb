@@ -26,10 +26,10 @@ class Artist < ActiveRecord::Base
       Artist.all.shuffle[1]
     end
 
-    def score
+    def score(votes = Vote.all)
       artist_hash = {}
 
-      Vote.all.each do |vote|
+      votes.each do |vote|
         voted_artists = {
           winner: vote.winner_id,
           loser: vote.loser_id

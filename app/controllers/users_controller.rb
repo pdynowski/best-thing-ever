@@ -20,6 +20,17 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @votes = @user.votes
+    artists_scores = Artist.score(@votes)
+    scores_sort = artists_scores.sort_by do |key, value|
+      value
+    end
+    artists = scores_sort.reverse.shift(40)
+    @user_artists = artists.map do |artist|
+      artist_obj = Artist.find(artist[0])
+      [artist_obj.name, artist[1]]
+    end
+    @user_artists
   end
 
   def update
