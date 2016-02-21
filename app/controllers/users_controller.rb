@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @groups = @user.groups
     @votes = @user.votes
     artists_scores = Artist.score(@votes)
     scores_sort = artists_scores.sort_by do |key, value|
