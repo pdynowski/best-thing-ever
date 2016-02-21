@@ -3,22 +3,41 @@
   min-height: 800px;
   background-position: 50%;
   text-align: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
-.option1-vote {
-  background-image: url("http://rollingout.com/wp-content/uploads/2013/12/Beyonce-Album-4-Outtake-beyonce-32623421-1280-960.jpg");
+/*body {
+  background-image: url("https://pixabay.com/static/uploads/photo/2014/01/31/11/56/equalizer-255396_960_720.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}*/
+
+/*.option1-vote {
+  background-image: url("https://pixabay.com/static/uploads/photo/2014/01/31/11/56/equalizer-255396_960_720.jpg");
 }
 
 .option2-vote {
-  background-image: url("http://vam.ac.uk/__data/assets/image/0011/172559/bowie_aladin_sane_1000px.jpg");
-}
+  background-image: url("https://pixabay.com/static/uploads/photo/2014/01/31/11/56/equalizer-255396_960_720.jpg");
+}*/
 
 .vote-button{
   margin: 25% auto;
 }
 
+#option1, #option2 {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border: 5px solid white;
+}
+
+#option1 {
+  border: 5px solid black;
+}
+
 #option1>img, #option2>img {
   margin-top: 20%;
+  border: 5px solid white;
 }
 
 #winner-photo, #loser-photo {
