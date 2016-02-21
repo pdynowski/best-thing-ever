@@ -67,4 +67,32 @@ describe Artist do
     end
   end
 
+  describe "#format_artist_name_for_url" do
+    it "should return a lowercase band name" do
+      basic_artist = Artist.new(name:"Nas")
+      expect(basic_artist.format_artist_name_for_url).to eq("nas")
+    end
+
+    it "should return a lowercase band name with no spaces" do
+      spaced_artist = Artist.new(name:"Guided By Voices")
+      expect(spaced_artist.format_artist_name_for_url).to eq("guided+by+voices")
+    end
+
+    it "should return a lowercase band name that formats ampersands correctly" do
+      ampersand_artist = Artist.new(name:"Hall & Oates")
+      expect(ampersand_artist.format_artist_name_for_url).to eq("hall+%26+oates")
+    end
+
+    it "should return a lowercase band name that formats plus signs correctly" do
+      plus_artist = Artist.new(name:"Florence + The Machine")
+      expect(plus_artist.format_artist_name_for_url).to eq('florence+%2B+the+machine')
+    end
+
+    it "should return a lowercase band name that formats hyphens correctly" do
+      hyphen_artist = Artist.new(name:"Bone Thugs-N-Harmony")
+      expect(hyphen_artist.format_artist_name_for_url).to eq("bone+thugs%2Dn%2Dharmony")
+    end
+    
+  end
+
 end
