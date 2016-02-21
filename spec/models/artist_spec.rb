@@ -80,19 +80,19 @@ describe Artist do
 
     it "should return a lowercase band name that formats ampersands correctly" do
       ampersand_artist = Artist.new(name:"Hall & Oates")
-      expect(ampersand_artist.format_artist_name_for_url).to eq("hall+%26+oates")
+      expect(ampersand_artist.format_artist_name_for_url).to eq("hall+and+oates")
     end
 
     it "should return a lowercase band name that formats plus signs correctly" do
       plus_artist = Artist.new(name:"Florence + The Machine")
-      expect(plus_artist.format_artist_name_for_url).to eq('florence+%2B+the+machine')
+      expect(plus_artist.format_artist_name_for_url).to eq('florence+and+the+machine')
     end
 
     it "should return a lowercase band name that formats hyphens correctly" do
       hyphen_artist = Artist.new(name:"Bone Thugs-N-Harmony")
-      expect(hyphen_artist.format_artist_name_for_url).to eq("bone+thugs%2Dn%2Dharmony")
+      expect(hyphen_artist.format_artist_name_for_url).to eq("bone+thugs-n-harmony")
     end
-    
+
   end
 
 end

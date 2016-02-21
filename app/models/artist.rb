@@ -6,15 +6,18 @@ class Artist < ActiveRecord::Base
   has_many :losing_votes, foreign_key: :loser_id, class_name: 'Vote'
 
   def format_artist_name_for_url
-    artist_name = self.name.downcase 
-    artist_name = URI::encode(artist_name, /[&\+-]/)
-    artist_name = artist_name.to_s.gsub(/\s/,'+')
+    artist_name = self.name.gsub(/\+/,'and')
+    artist_name = artist_name.gsub(/&/,'and').downcase
+    artist_name = artist_name.gsub(/\s/,'+')
+    artist_name = URI::encode(artist_name)
+    artist_name = artist_name.gsub(/%E2%80%90/, '-')
   end
 
   def get_image_url
     if self.image_url == nil
       artist_name = format_artist_name_for_url
       url = "http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=#{artist_name}&api_key=#{Rails.application.secrets.lastfm_api_key}&format=json"
+      p url
       uri = URI(url)
       data = Net::HTTP.get(uri)
       parsed = JSON.parse(data)
