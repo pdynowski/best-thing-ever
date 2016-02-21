@@ -2,7 +2,11 @@
 
 
 <!-- Group stuff here? -->
-
+<ol>
+<% @user_artists.each do |artist| %>
+  <li class="artist-row"><span class="artist-name"><%= artist[0] %></span><span class="artist-score"> <%= artist[1] %> </span></li>
+<% end %>
+</ol>
 
 <% if current_user %>
   <%= link_to 'Edit Your Profile', edit_user_path(current_user) %>
