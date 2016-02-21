@@ -1,25 +1,35 @@
-<% if flash[:user_update_error] %>
-  <div class="error"><%= flash[:user_update_error] %></div>
-<% end %>
-<% if flash[:user_error_destroy] %>
-  <div class="error"><%= flash[:user_error_destroy] %></div>
-<% end %>
-
-  <h1>Edit your profile.</h1>
-  <%= form_for :user, method: 'patch', url: user_path, html: {class: "pure-form-aligned"} do |f| %>
-
-      <%= f.label :username %><br>
-      <%= f.text_field :username, placeholder: "#{current_user.username}" %><br>
-
-      <%= f.label :email %><br>
-      <%= f.email_field :email, placeholder: "#{current_user.email}" %><br>
-
-      <%= f.label :password %><br>
-      <%= f.password_field :password %><br><br>
-
-      <%= f.submit :Update, class: 'pure-button-primary' %>
-
-  <% end %>
-
-  <div><%= button_to 'Delete', method: :delete, data: { confirm: "Are your sure you want to delete your account? "}, class: 'pure-button-button-warning' %></div>
-
+<div class="pure-g">
+  <div class="pure-u-1-3">
+    <% if flash[:user_update_error] %>
+      <div class="error"><%= flash[:user_update_error] %></div>
+    <% end %>
+    <% if flash[:user_error_destroy] %>
+      <div class="error"><%= flash[:user_error_destroy] %></div>
+    <% end %>
+  </div>
+  <div class="pure-u-1-3">
+    <h2>Edit your profile</h2>
+    <%= form_for :user, method: :patch, url: user_path, html: {class: "pure-form pure-form-aligned user-form"} do |f| %>
+      <div class="pure-control-group">
+        <%= f.label :username %><br>
+        <%= f.text_field :username, placeholder: "#{current_user.username}" %><br>
+      </div>
+      <div class="pure-control-group">
+        <%= f.label :email %><br>
+        <%= f.email_field :email, placeholder: "#{current_user.email}" %><br>
+      </div>
+      <div class="pure-control-group">
+        <%= f.label :password %><br>
+        <%= f.password_field :password %><br><br>
+      </div>
+      <div class="pure-control-group">
+        <%= f.submit :Update, class: 'pure-button pure-button-primary' %>
+      </div>
+      <div class="pure-control-group">
+        <%= form_for :user, method: :delete, data: { confirm: "Are you sure you want to delete your account? "} do |f| %>
+          <%= f.submit :Delete, id: 'delete-user', class: 'pure-button pure-button-primary' %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
