@@ -1,13 +1,27 @@
 <h1><%= current_user.username %>'s Profile</h1>
 
-
-<!-- Group stuff here? -->
-<ol>
-<% @user_artists.each do |artist| %>
-  <li class="artist-row"><span class="artist-name"><%= artist[0] %></span><span class="artist-score"> <%= artist[1] %> </span></li>
+<% if @groups.length > 0 %>
+<h2>Your Groups</h2>
+  <ul>
+  <% @groups.each do |group| %>
+    <li class="user-group"><a href="/groups/<%= group.id %>"><%= group.name %></a></li>
+  <% end %>
+  </ul>
 <% end %>
-</ol>
 
-<% if current_user %>
-  <%= link_to 'Edit Your Profile', edit_user_path(current_user) %>
+<h2 class="artist-rankings">Your Top 40 Artists</h2>
+<% if @user_artists.length > 0 %>
+  <ol>
+  <% @user_artists.each do |artist| %>
+    <li class="artist-row"><span class="artist-name"><%= artist[0] %></span><span class="artist-score"> <%= artist[1] %> </span></li>
+  <% end %>
+  </ol>
+<% else %>
+  <em>You haven't voted on any artists yet. <a href="/">Get started now!</a></em>
 <% end %>
+
+<div>
+  <% if current_user %>
+    <%= link_to 'Edit Your Profile', edit_user_path(current_user) %>
+  <% end %>
+</div>
