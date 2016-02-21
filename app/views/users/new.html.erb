@@ -5,9 +5,8 @@
   <div class="error"><%= flash[:user_successful_destroy] %></div>
 <% end %>
 
-<form class='pure-form pure-form-aligned'>
   <h1>Register</h1>
-  <%= form_for :user, url: users_path do |f| %>
+  <%= form_for :user, url: users_path, html: { class: "pure-form pure-form-aligned"} do |f| %>
 
     <%= f.label :username %><br>
     <%= f.text_field :username %><br>
@@ -21,4 +20,4 @@
     <%= f.submit :Register, class: 'pure-button pure-button-primary' %>
 
   <% end %>
-</form>
+
