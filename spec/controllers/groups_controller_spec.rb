@@ -9,7 +9,8 @@ describe GroupsController do
   end
 
   describe 'POST #create' do
-    it 'should create a new user group' do
+    it 'should create a new user group if user is logged in' do
+      controller.session[:user_id] = 1
       params = { group: {
           name: 'Foxtato',
           password: 'DoTheThing'
@@ -22,11 +23,13 @@ describe GroupsController do
   end
 
   describe 'GET #show' do
-      it "should render the home page for a group" do
-        Group.create!(name: 'Foxtato', password: 'DoTheThing')
-        get :show, id: Group.last.id
-        expect(response).to render_template(:show)
-      end
+    it "should render the home page for a group" do
+      controller.session[:user_id] = 1
+      Group.create!(name: 'Foxtato', password: 'DoTheThing')
+      Entourage.create!(group_id: Group.last.id, user_id: session[:user_id])
+      get :show, {id: Group.last.id}
+      expect(response).to render_template(:show)
+    end
   end
 
 
