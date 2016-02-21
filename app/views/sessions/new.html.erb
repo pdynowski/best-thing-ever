@@ -2,17 +2,16 @@
   <div class='error'><%= flash[:login_error] %></div>
 <% end %>
 
-<form class='pure-form pure-form-aligned'>
-  <h1>User Login</h1>
-    <%= form_for :session, url: sessions_path do |f| %>
+<h1>User Login</h1>
+<%= form_for :session, url: sessions_path, html: {class: "pure-form pure-form-aligned"} do |f| %>
 
-      <%= f.label :email %><br>
-      <%= f.email_field :email %><br>
+  <%= f.label :email %><br>
+  <%= f.email_field :email %><br>
 
-      <%= f.label :password %><br>
-      <%= f.password_field :password %><br><br>
+  <%= f.label :password %><br>
+  <%= f.password_field :password %><br><br>
 
-      <%= f.submit :Login, class: 'pure-button pure-button-primary' %>
+  <%= f.submit :Login, class: 'pure-button pure-button-primary' %>
 
-    <% end %>
-</form>
+<% end %>
+

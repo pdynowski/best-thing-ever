@@ -17,7 +17,7 @@ class VotesController < ApplicationController
   end
 
   def create
-    @vote = Vote.new(winner_id: params[:winner], loser_id: params[:loser])
+    @vote = Vote.new(winner_id: params[:winner], loser_id: params[:loser], user_id: session[:user_id])
     flash[:prev_winner_id] = params[:winner]
     flash[:prev_loser_id] = params[:loser]
     if @vote.save
