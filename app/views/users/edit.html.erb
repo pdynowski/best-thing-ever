@@ -5,25 +5,22 @@
   <div class="error"><%= flash[:user_error_destroy] %></div>
 <% end %>
 
-<div>
+<form class='pure-form-aligned'>
   <h1>Edit your profile.</h1>
   <%= form_for :user, method: 'patch', url: user_path do |f| %>
-    <p>
+
       <%= f.label :username %><br>
-      <%= f.text_field :username %>
-    </p>
-    <p>
+      <%= f.text_field :username, placeholder: "#{current_user.username}" %><br>
+
       <%= f.label :email %><br>
-      <%= f.email_field :email %>
-    </p>
-    <p>
+      <%= f.email_field :email, placeholder: "#{current_user.email}" %><br>
+
       <%= f.label :password %><br>
-      <%= f.password_field :password %>
-    </p>
-    <p>
-      <%= f.submit :Update %>
-    </p>
+      <%= f.password_field :password %><br><br>
+
+      <%= f.submit :Update, class: 'pure-button-primary' %>
+
   <% end %>
 
-  <div><%= button_to 'Delete', method: :delete, data: { confirm: "Are your sure you want to delete your account? "} %></div>
-</div>
+  <div><%= button_to 'Delete', method: :delete, data: { confirm: "Are your sure you want to delete your account? "}, class: 'pure-button' %></div>
+</form>
