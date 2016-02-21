@@ -1,0 +1,11 @@
+<h1><%= @group.name %></h1>
+
+<% @group.users.each do |user| %>
+  <%= link_to user.username, user_path(user) %>
+<% end %>
+
+<ol>
+<% @group_artists.each do |artist| %>
+  <li class="artist-row"><span class="artist-name"><%= artist[0] %></span><span class="artist-score"> <%= artist[1] %> </span></li>
+<% end %>
+</ol>
