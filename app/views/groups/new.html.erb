@@ -1,3 +1,4 @@
+
 <h1>Start your own band!</h1>
 
 <%= form_for @group, html: {class: "pure-form pure-form-aligned new-group-form"} do |f|%>
@@ -11,3 +12,10 @@
   <%= f.submit "Start your band", class: 'pure-button pure-button-primary'%>
 
 <%end%>
+
+<% if flash[:group_create_error] %>
+  <div class="error"><%= flash[:group_create_error] %></div>
+<% end %>
+<% if flash[:group_successful_destroy] %>
+  <div class="error"><%= flash[:group_successful_destroy] %></div>
+<% end %>
