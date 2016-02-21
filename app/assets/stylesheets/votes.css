@@ -7,20 +7,6 @@
   background-size: 100% 100%;
 }
 
-/*body {
-  background-image: url("https://pixabay.com/static/uploads/photo/2014/01/31/11/56/equalizer-255396_960_720.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-}*/
-
-/*.option1-vote {
-  background-image: url("https://pixabay.com/static/uploads/photo/2014/01/31/11/56/equalizer-255396_960_720.jpg");
-}
-
-.option2-vote {
-  background-image: url("https://pixabay.com/static/uploads/photo/2014/01/31/11/56/equalizer-255396_960_720.jpg");
-}*/
-
 .vote-button{
   margin: 25% auto;
 }
