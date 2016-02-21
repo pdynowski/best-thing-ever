@@ -5,14 +5,7 @@
 
 
     <!-- Group stuff here? -->
-    <ol class="artist-rankings">
-      <% @user_artists.each do |artist| %>
-        <li class="artist-row">
-          <span class="artist-name"><%= artist[0] %></span>
-          <span class="artist-score"><%= artist[1] %></span>
-        </li>
-      <% end %>
-    </ol>
+    <%= render partial: 'artists/rankings_table', locals: {artists: @user_artists} %>
 
     <% if current_user %>
       <%= link_to 'Edit Your Profile', edit_user_path(current_user) %>

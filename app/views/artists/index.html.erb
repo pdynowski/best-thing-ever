@@ -2,26 +2,7 @@
   <div class="pure-u-1-3"></div>
   <div class="pure-u-2-3">
     <h1>Best Thing Ever Top 40</h1>
-    <table class="pure-table pure-table-horizontal">
-      <thead>
-        <tr>
-          <th>Rank</th>
-          <th>Artist Name</th>
-          <th>BTELO Score</th>
-        </tr>
-      </thead>
-      <tbody class="artist-rankings">
-        <% rank = 0 %>
-        <% @artists.each do |artist| %>
-          <% rank = rank + 1 %>
-          <tr class="artist-row">
-            <td class="artist-rank"><%= rank %></td>
-            <td class="artist-name"><%= artist[0] %></td>
-            <td class="artist-score"><%= artist[1] %></td>
-          </tr>
 
-        <% end %>
-      </tbody>
-    </table>
+    <%= render partial: 'rankings_table', locals: {artists: @artists} %>
 </div>
 </div>
