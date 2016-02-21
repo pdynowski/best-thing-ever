@@ -19,7 +19,7 @@ feature 'user visits artists#show' do
     expect(page).to have_selector('.artist-row', count: 40)    
   end
 
-  scenario "user should see a list of that user's groups" do
+  scenario "user should see a header for a list of that user's groups" do
     visit '/sessions/new'
     fill_in "Email", :with => "test@test.com"
     fill_in "Password", :with => "test"
@@ -28,4 +28,12 @@ feature 'user visits artists#show' do
     expect(page).to have_content('Groups')    
   end
 
+  scenario "user should see a list of that user's groups" do
+    visit '/sessions/new'
+    fill_in "Email", :with => "test@test.com"
+    fill_in "Password", :with => "test"
+    click_button "Login"
+    visit 'users/1'
+    expect(page).to have_selector('.user-group')    
+  end
 end

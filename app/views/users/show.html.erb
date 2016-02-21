@@ -1,7 +1,11 @@
 <h1><%= current_user.username %>'s Profile</h1>
 
+<h2>Your Groups</h2>
+
 
 <!-- Group stuff here? -->
+<h2 class="artist-rankings">Your Top 40 Artists</h2>
+
 <ol>
 <% @user_artists.each do |artist| %>
   <li class="artist-row"><span class="artist-name"><%= artist[0] %></span><span class="artist-score"> <%= artist[1] %> </span></li>
