@@ -1,17 +1,25 @@
-<% if flash[:login_error] %>
-  <div class='error'><%= flash[:login_error] %></div>
-<% end %>
+<div class="pure-g">
 
-<h1>User Login</h1>
-<%= form_for :session, url: sessions_path, html: {class: "pure-form pure-form-aligned"} do |f| %>
+  <div class="pure-u-1-3">
+  <% if flash[:login_error] %>
+    <div class='error'><%= flash[:login_error] %></div>
+  <% end %>
+  </div>
+  <div class="pure-u-1-3 user-form">
+  <h2>Log in</h2>
 
-  <%= f.label :email %><br>
-  <%= f.email_field :email %><br>
-
-  <%= f.label :password %><br>
-  <%= f.password_field :password %><br><br>
-
-  <%= f.submit :Login, class: 'pure-button pure-button-primary' %>
-
-<% end %>
-
+  <%= form_for :session, url: sessions_path, html: {class: "pure-form pure-form-aligned"} do |f| %>
+      <div class="pure-control-group">
+        <%= f.label :Email %>
+        <%= f.email_field :email, placeholder: "Email" %>
+      </div>
+      <div class="pure-control-group">
+        <%= f.label :Password %>
+        <%= f.password_field :password, placeholder: "Password" %>
+      </div>
+      <div class="pure-control-group">
+        <%= f.submit :Login, class: 'pure-button pure-button-primary' %>
+      </div>
+  <% end %>
+  </div>
+</div>
