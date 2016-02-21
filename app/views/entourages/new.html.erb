@@ -1,0 +1,19 @@
+<h1>Hey, you're not a member of that group!</h1>
+<h2>If you want to be, enter the group's access code</h2>
+<% if @group_id %>
+  <%= form_for @entourage, html: {class: "group-entry"} do |f| %>
+    <%= f.label :password, "Backstage Passcode:" %><br>
+    <%= f.password_field :password %><br><br>
+
+    <%= f.hidden_field :group_id, value: @group_id %>
+
+    <%= f.submit "Join the band", class: 'pure-button pure-button-primary' %>
+  <% end %>
+<% else %>
+  <h1>This request isn't bound to a group - please visit the page of the group you're trying to join</h1>
+<% end %>
+
+<% if flash[:group_join_errors] %>
+  <div class="error"><%= flash[:group_join_errors] %></div>
+<% end %>
+

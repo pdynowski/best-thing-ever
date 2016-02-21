@@ -47,11 +47,11 @@ class Artist < ActiveRecord::Base
         loser_id = voted_artists[:loser]
 
         unless artist_hash.has_key?(winner_id)
-          artist_hash[winner_id] = 1500
+          artist_hash[winner_id] = 0
         end
 
         unless artist_hash.has_key?(loser_id)
-          artist_hash[loser_id] = 1500
+          artist_hash[loser_id] = 0
         end
 
         new_scores = Artist.assign_elo_points({
