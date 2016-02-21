@@ -5,6 +5,12 @@ class Artist < ActiveRecord::Base
   has_many :winning_votes, foreign_key: :winner_id, class_name: 'Vote'
   has_many :losing_votes, foreign_key: :loser_id, class_name: 'Vote'
 
+  def format_artist_name_for_url
+    artist_name = URI::encode(self.name.gsub(/\s/,'+').gsub(/&/,'%26'))
+    artist_name = artist_name.downcase
+    p artist_name
+  end
+
   def get_image_url
     if self.image_url == nil
       artist_name = URI::encode(self.name.gsub(/\s/,'+'))
