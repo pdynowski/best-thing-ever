@@ -1,7 +1,7 @@
 <% unless current_user %>
-  <li><%= link_to 'Login', new_sessions_path %></li>
-  <li><%= link_to 'Register' new_user_path %></li>
+  <li class='pure-menu-list'><%= link_to 'Login', new_session_path, class: 'pure-menu-link' %></li>
+  <li class='pure-menu-list'><%= link_to 'Register', new_user_path, class: 'pure-menu-link' %></li>
 <% else %>
-  <li><%= link_to "#{current_user.username}", user_path(current_user) %></li>
-  <li><%= link_to 'Logout', session_path(current_user), method: :delete %></li>
+  <li class='pure-menu-list'><%= link_to "#{current_user.username}", user_path(current_user), class: 'pure-menu-link' %></li>
+  <li class='pure-menu-list'><%= link_to 'Logout', session_path(current_user), method: :delete, class: 'pure-menu-link' %></li>
 <% end %>
