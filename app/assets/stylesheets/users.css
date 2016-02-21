@@ -1,3 +1,18 @@
-.button-warning {
-  background: rgb(223, 117, 20); /* this is an orange */
+.user-form {
+  margin-top: 5%;
+}
+
+.user-form>label {
+  width: 2em;
+}
+
+button, input[type=submit] {
+  margin-top: 5%;
+  margin-left: 45%;
+  margin-right: 45%;
+  border-radius: 7px;
+}
+
+#delete-user {
+  background-color: rgb(223, 117, 20); /* fiery orange */
 }
