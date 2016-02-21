@@ -1,0 +1,11 @@
+table {
+  margin-bottom: 100px;
+}
+
+.artist-row:nth-child(even){
+  background-color: #E0E0E0;
+}
+
+.artist-score {
+  text-align: center;
+}
