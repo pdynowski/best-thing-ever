@@ -1,23 +1,28 @@
+#vote-area {
+  height: calc(100vh - 37px);
+}
+
 .option1-vote, .option2-vote {
   text-align: center;
   text-decoration: none;
 }
 
 #option1, #option2 {
-  min-height: 800px;
   background-repeat: no-repeat;
-  background-size: 100% 100%;
-  border: 5px solid white;
-  max-width: 100%;
-  height: auto;
   display: block;
-}
-.option-name {
+  background-size: 100% 100%;
   position: relative;
-  bottom: 0;
-  right:0 ;
+}
+
+.option-name {
   color: white;
   font-size: 5em;
+  margin:0;
+  background: rgba(48, 48, 48, 0.5);
+  position: absolute;
+  bottom: 5%;
+  width: 100%;
+  text-align: center;
 }
 
 #winner-photo, #loser-photo {
@@ -42,7 +47,6 @@
 p {
   margin-top: calc(50px - 2em);
 }
-
 
 input[type=submit] {
     margin-left: auto;

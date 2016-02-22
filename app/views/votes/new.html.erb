@@ -1,18 +1,17 @@
 <div class='animated fadeInUp'>
-<div class="pure-g" >
-    <% if @prev_winner %>
-      <%= render partial: "votes/previous_vote_results" %>
-    <% end %>
-</div>
+  <div class="pure-g" >
+      <% if @prev_winner %>
+        <%= render partial: "votes/previous_vote_results" %>
+      <% end %>
+  </div>
 </div>
 
-<div class="pure-g">
+<div class="pure-g" id="vote-area">
   <%= link_to votes_path(winner: @option1.id, loser: @option2.id), method: :post, :class => "option1-vote pure-u-1 pure-u-md-1-2 " do %>
     <div id="option1" style="background-image: url(<%=@option1.get_image_url%>)" class='animated fadeIn'>
       <h1 class="option-name"><%= @option1.name %></h1>
     </div>
-  <%end%>
-  <%=link_to votes_path(winner: @option2.id, loser: @option1.id), method: :post, :class => "option2-vote pure-u-1 pure-u-md-1-2" do%>
+  <%end%><%=link_to votes_path(winner: @option2.id, loser: @option1.id), method: :post, :class => "option2-vote pure-u-1 pure-u-md-1-2" do%>
     <div id="option2" style="background-image: url(<%=@option2.get_image_url%>)" class='animated fadeIn'>
       <h1 class="option-name"><%= @option2.name %></h1>
     </div>
