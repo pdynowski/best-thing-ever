@@ -1,13 +1,6 @@
 .option1-vote, .option2-vote {
-  width: 100%;
-  background-position: 50%;
   text-align: center;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-}
-
-.vote-button{
-  margin: 25% auto;
+  text-decoration: none;
 }
 
 #option1, #option2 {
@@ -15,6 +8,16 @@
   background-repeat: no-repeat;
   background-size: 100% 100%;
   border: 5px solid white;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.option-name {
+  position: relative;
+  bottom: 0;
+  right:0 ;
+  color: white;
+  font-size: 5em;
 }
 
 #option1 {
