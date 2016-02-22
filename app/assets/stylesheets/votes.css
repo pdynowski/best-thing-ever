@@ -37,6 +37,7 @@
 
 #loser-photo {
   border: solid #E69595 5px;
+  opacity: 0.5;
 }
 
 .last-photo {
@@ -51,4 +52,10 @@
 
 p {
   margin-top: calc(50px - 0.5em);
+}
+
+
+input[type=submit] {
+    margin-left: auto;
+    margin-right: auto;
 }

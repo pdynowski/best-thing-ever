@@ -17,7 +17,6 @@ class Artist < ActiveRecord::Base
     if self.image_url == nil
       artist_name = format_artist_name_for_url
       url = "http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=#{artist_name}&api_key=#{Rails.application.secrets.lastfm_api_key}&format=json"
-      p url
       uri = URI(url)
       data = Net::HTTP.get(uri)
       parsed = JSON.parse(data)
@@ -61,32 +60,18 @@ class Artist < ActiveRecord::Base
       artist_hash = {}
 
       votes.each do |vote|
-        voted_artists = {
-          winner: vote.winner_id,
-          loser: vote.loser_id
-        }
-
-        winner_id = voted_artists[:winner]
-        loser_id = voted_artists[:loser]
-
-        unless artist_hash.has_key?(winner_id)
-          artist_hash[winner_id] = 0
-        end
-
-        unless artist_hash.has_key?(loser_id)
-          artist_hash[loser_id] = 0
-        end
+        artist_hash[vote.winner_id] ||= 0
+        artist_hash[vote.loser_id] ||= 0
 
         new_scores = Artist.assign_elo_points({
-          winner: artist_hash[winner_id],
-          loser: artist_hash[loser_id]}
-          )
+          winner: artist_hash[vote.winner_id],
+          loser: artist_hash[vote.loser_id]
+          })
 
-        artist_hash[winner_id] = new_scores[:winner]
-        artist_hash[loser_id] = new_scores[:loser]
+        artist_hash[vote.winner_id] = new_scores[:winner]
+        artist_hash[vote.loser_id] = new_scores[:loser]
       end
         return artist_hash
-
     end
 
     def assign_elo_points(voted_artists)

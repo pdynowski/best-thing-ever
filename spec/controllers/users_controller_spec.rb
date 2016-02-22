@@ -28,6 +28,14 @@ describe UsersController do
       for(:create, params: params).
         on(:user)
     end
+
+    it 'should assign users id to a session id' do
+      post :create, params = { user: {username: 'him', email: 'him@him', password: 'him'}}
+      if user.save
+        @request.session[:user_id] = User.last.id
+        expect(response).to redirect_to("/users/#{User.last.id}")
+      end
+    end
   end
 
   describe 'GET #show' do
@@ -43,9 +51,18 @@ describe UsersController do
         { username: "Kendrick Lamar", email:"topimp@butterf.ly", password:"obamasaywhatitdo" }
       end
 
+      def invalid_params
+        { username: nil, email: nil, password: nil }
+      end
+
       it "redirects to user's profile" do
         post :update, { id: User.last.id, user: valid_params }
          expect(response).to redirect_to(user_path(User.last.id))
+      end
+
+      it "should flash an error on unsuccessful update" do
+        post :update, { id: User.last.id, user: invalid_params }
+        controller.flash[:user_update_error] = user.errors.full_messages.to_sentence
       end
     end
   end
@@ -63,6 +80,14 @@ describe UsersController do
       post :destroy, { id: User.last.id}
       expect(response).to render_template(:new)
     end
+
+    # it 'should flash and error when user account was not destroyed' do
+
+    #   session[:user_id] = User.last.id
+    #   delete :destroy, { id: 1, username: 1000000 }
+    #   controller.flash[:user_error_destroy] = user.errors.full_messages.to_sentence
+    #   expect(response).to render_template(:edit)
+    # end
   end
 
 end
