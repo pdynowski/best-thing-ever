@@ -1,9 +1,10 @@
+<div class='animated fadeInUp'>
 <div class="pure-g" >
     <% if @prev_winner %>
       <%= render partial: "votes/previous_vote_results" %>
     <% end %>
 </div>
-
+</div>
 
 <div class="pure-g" >
   <%= link_to votes_path(winner: @option1.id, loser: @option2.id), method: :post, :class => "option1-vote pure-u-1-2" do %>
