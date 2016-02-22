@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_url
     else
-      flash[:login_error] = user.errors.full_messages.to_sentence
+      flash[:login_error] = "Login was incorrect."
       render :new
     end
   end
