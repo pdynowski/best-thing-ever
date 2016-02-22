@@ -1,7 +1,9 @@
 class GroupsController < ApplicationController
+  before_action :require_login
 
   def index
-    @groups = Group.all
+    @user_groups = User.find(session[:user_id]).groups
+    @groups = Group.all - @user_groups
   end
 
   def new
