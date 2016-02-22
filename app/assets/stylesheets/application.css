@@ -16,3 +16,6 @@
  *= require pure
  *= require grids-responsive-min
  */
+.container {
+  margin: 20px;
+}
