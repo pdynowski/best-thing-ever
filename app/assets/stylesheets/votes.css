@@ -48,8 +48,12 @@
   height: 90px;
 }
 
-.prev-winner, .prev-loser {
+.prev-winner{
   text-align: right;
+}
+
+.prev-loser {
+  text-align: left;
 }
 
 p {
