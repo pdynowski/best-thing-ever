@@ -1,7 +1,7 @@
 <h1><%= @group.name %></h1>
 
 <div class="pure-g">
-  <div class="pure-u-1-6">
+  <div class="pure-u-1-24">
   </div>
   <div class="pure-u-1-4">
     <h3>Band Members</h3>
@@ -9,7 +9,18 @@
       <%= link_to user.username, user_path(user) %><br>
     <% end %>
   </div>
-  <div class="pure-u-1-6">
+   <div class="pure-u-2-24">
+  </div>
+  <div class="pure-u-1-4">
+    <h3>Last 20 votes in this group</h3>
+    <% @last_votes.each do |vote| %>
+    <%=vote[:voter]%> chose
+      <img class="group-img" src="<%= vote[:winner] %>" title="<%= vote[:winner_name]%>">
+      over
+      <img class="group-img" src="<%=vote[:loser]%>" title="<%=vote[:loser_name]%>"><br>
+    <% end %>
+  </div>
+   <div class="pure-u-2-24">
   </div>
   <div class="pure-u-1-4">
     <h2>Top 40 Artists for this Group</h2>
@@ -19,6 +30,6 @@
       <em>Your group hasn't voted on any artists yet. <a href="/">Get started now!</a></em>
     <% end %>
   </div>
-  <div class="pure-u-1-6">
+  <div class="pure-u-1-24">
   </div>
 </div>
