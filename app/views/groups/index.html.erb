@@ -1,0 +1,23 @@
+<div class='container'>
+  <h1>User groups</h1>
+  <%= link_to "Create a group", new_group_path %>
+  <h2>Groups you belong to: </h2>
+  <h5>(most active at top)</h5>
+  <table>
+    <tr>
+      <th>Group</th>
+      <th>Votes</th>
+    </tr>
+    <%= render @user_groups %>
+  </table>
+  <h2>Other groups: </h2>
+  <h4>To join, you'll need a passcode...</h4>
+  <table>
+    <tr>
+      <th>Group</th>
+      <th>Votes</th>
+    </tr>
+    <%= render @groups %>
+  </table>
+</div>
+

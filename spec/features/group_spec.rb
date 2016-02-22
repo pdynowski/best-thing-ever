@@ -7,7 +7,12 @@ require 'rails_helper'
 # end
 
 feature 'user tries to create a new group' do
-
+  before(:each) do
+    visit '/sessions/new'
+    fill_in "Email", :with => "test@test.com"
+    fill_in "Password", :with => "test"
+    click_button "Login"
+  end
   scenario 'user should see a form to create a group' do
     visit 'groups/new'
     expect(page).to have_selector('.new-group-form')
