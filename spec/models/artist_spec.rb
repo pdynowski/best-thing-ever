@@ -55,10 +55,8 @@ describe Artist do
 
     it "should return a hash with values of elo scores" do
       artist_elo_hash = Artist.score
-      expect(artist_elo_hash.values.sample).to be > 800
-      expect(artist_elo_hash.values.sample).to be < 3000
+      expect(artist_elo_hash.values.sample).to be_an(Fixnum)
     end
-
   end
 
   describe "#get_random_artist" do

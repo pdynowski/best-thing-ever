@@ -26,7 +26,7 @@ User.create!(username: "test", email: "test@test.com", password: "test")
   Vote.create!(user_id: 1, winner_id: rand(1..500), loser_id: rand(501..1000))
 end
 
-(0..50).each do 
+(0..50).each do
   User.create!(username:Faker::Internet.user_name , email: Faker::Internet.email, password: "test")
 end
 
@@ -35,5 +35,5 @@ end
 end
 
 5.times do |num|
-  Entourage.create!(user_id: 1, group_id: num)  
+  Entourage.create!(user_id: 1, group_id: num)
 end
