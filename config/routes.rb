@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :users
   resources :votes, only: [:new, :create]
   resources :artists, only: [:index]
-  resources :groups, only: [:new, :create, :show]
+  resources :groups, only: [:new, :create, :show, :index]
   resources :entourages, only: [:new, :create]
   resources :developers, only: [:index]
   root 'votes#new'

@@ -3,6 +3,7 @@ require 'rails_helper'
 describe GroupsController do
   describe 'GET new' do
     it 'renders a new group template' do
+      controller.session[:user_id] =1
       get :new
       expect(response).to render_template(:new)
     end
