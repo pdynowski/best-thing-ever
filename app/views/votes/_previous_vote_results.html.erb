@@ -7,13 +7,15 @@
     <img class="last-photo" src="<%=@prev_winner.get_image_url%>">
   </div>
   <div class="pure-u-1-3">
-    <p><%= @prev_winner_score %></p>
+    <p><%= @prev_winner_score %><br>
+    <strong>Rank:</strong>  <%= @prev_winner.ranking %></p>
   </div>
 </div>
 
 <div class="prev-loser pure-u-1-2">
   <div class="pure-u-1-3">
-    <p><%= @prev_loser_score %></p>
+    <p><%= @prev_loser_score %><br>
+    <strong>Rank:</strong> <%= @prev_loser.ranking %></p>
   </div>
   <div class="pure-u-1-3" id="loser-photo">
     <img class="last-photo" src="<%=@prev_loser.get_image_url%>">
