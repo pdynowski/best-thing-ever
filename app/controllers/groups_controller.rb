@@ -4,6 +4,7 @@ class GroupsController < ApplicationController
   def index
     @user_groups = User.find(session[:user_id]).groups
     @groups = Group.all - @user_groups
+    @user_groups = @user_groups.sort_by { |group| group.votes.count}.reverse
   end
 
   def new
@@ -41,7 +42,7 @@ class GroupsController < ApplicationController
       artists = scores_sort.reverse.shift(40)
       @group_artists = artists.map do |artist|
         artist_obj = Artist.find(artist[0])
-        [artist_obj.name, artist[1]]
+        [artist_obj.ranking, artist_obj.name, artist[1]]
       end
       @last_votes =
       @votes.sort{|v1, v2| v2.created_at <=> v1.created_at}.shift(20).map do |vote|
