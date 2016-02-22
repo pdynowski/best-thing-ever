@@ -37,8 +37,8 @@ class Artist < ActiveRecord::Base
       artist_hash = {}
 
       votes.each do |vote|
-        artist_hash[vote.winner_id] ||= 1500
-        artist_hash[vote.loser_id] ||= 1500
+        artist_hash[vote.winner_id] ||= 0
+        artist_hash[vote.loser_id] ||= 0
 
         new_scores = Artist.assign_elo_points({
           winner: artist_hash[vote.winner_id],
