@@ -28,6 +28,29 @@ class Artist < ActiveRecord::Base
     end
   end
 
+  def ranking
+    ranks=[]
+    position = 0
+    last_score = nil
+    Hash[Artist.score.sort_by{|k,v| v}.reverse].each { |rank|
+      if rank[1] == last_score
+        rank << position
+        ranks << rank
+        last_score = rank[1]
+      else
+        position += 1  
+        rank << position
+        ranks << rank
+        last_score = rank[1]
+      end
+    }
+    ranks.each do |rank|
+      if rank[0] == self.id
+        return rank[2]
+      end
+    end
+  end
+
   class << self
     def get_random_artist
       Artist.all.shuffle[1]
