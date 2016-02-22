@@ -1,45 +1,33 @@
-.option1-vote, .option2-vote {
-  width: 100%;
-  background-position: 50%;
-  text-align: center;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+#vote-area {
+  height: calc(100vh - 37px);
 }
 
-.vote-button{
-  margin: 25% auto;
+.option1-vote, .option2-vote {
+  text-align: center;
+  text-decoration: none;
 }
 
 #option1, #option2 {
-  min-height: 800px;
   background-repeat: no-repeat;
+  display: block;
   background-size: 100% 100%;
-  border: 5px solid white;
+  position: relative;
 }
 
-#option1 {
-  border: 5px solid black;
-}
-
-#option1>img, #option2>img {
-  margin-top: 20%;
-  border: 5px solid white;
+.option-name {
+  color: white;
+  font-size: 5em;
+  margin:0;
+  background: rgba(48, 48, 48, 0.5);
+  position: absolute;
+  bottom: 5%;
+  width: 100%;
+  text-align: center;
 }
 
 #winner-photo, #loser-photo {
   width: 100px;
   height: 100px;
-}
-
-#winner-photo {
-  border: solid #9FE695 5px;
-  margin-right: 10px;
-}
-
-#loser-photo {
-  border: solid #E69595 5px;
-  margin-left: 10px;
-  opacity: 0.5;
 }
 
 .last-photo {
@@ -59,7 +47,6 @@
 p {
   margin-top: calc(50px - 2em);
 }
-
 
 input[type=submit] {
     margin-left: auto;

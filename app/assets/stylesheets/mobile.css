@@ -1,0 +1,25 @@
+@media screen and (max-width:48em){
+  body {
+    height: 800px;
+  }
+
+  .option1-vote, .option2-vote {
+    height: 50%;
+  }
+
+  #option1, #option2 {
+    height: 100%;
+    width: 100vw;
+  }
+}
+
+@media screen and (min-width:48em){
+  .option1-vote, .option2-vote {
+    height: 100%;
+  }
+
+  #option1, #option2 {
+    height: 100%;
+    width: 50vw;
+  }
+}
