@@ -38,32 +38,18 @@ class Artist < ActiveRecord::Base
       artist_hash = {}
 
       votes.each do |vote|
-        voted_artists = {
-          winner: vote.winner_id,
-          loser: vote.loser_id
-        }
-
-        winner_id = voted_artists[:winner]
-        loser_id = voted_artists[:loser]
-
-        unless artist_hash.has_key?(winner_id)
-          artist_hash[winner_id] = 0
-        end
-
-        unless artist_hash.has_key?(loser_id)
-          artist_hash[loser_id] = 0
-        end
+        artist_hash[vote.winner_id] ||= 1500
+        artist_hash[vote.loser_id] ||= 1500
 
         new_scores = Artist.assign_elo_points({
-          winner: artist_hash[winner_id],
-          loser: artist_hash[loser_id]}
-          )
+          winner: artist_hash[vote.winner_id],
+          loser: artist_hash[vote.loser_id]
+          })
 
-        artist_hash[winner_id] = new_scores[:winner]
-        artist_hash[loser_id] = new_scores[:loser]
+        artist_hash[vote.winner_id] = new_scores[:winner]
+        artist_hash[vote.loser_id] = new_scores[:loser]
       end
         return artist_hash
-
     end
 
     def assign_elo_points(voted_artists)
