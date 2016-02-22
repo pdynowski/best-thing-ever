@@ -17,6 +17,31 @@
   border: 5px solid white;
 }
 
+#option1 {
+  border: 5px solid black;
+}
+
+#option1>img, #option2>img {
+  margin-top: 20%;
+  border: 5px solid white;
+}
+
+#winner-photo, #loser-photo {
+  width: 100px;
+  height: 100px;
+}
+
+#winner-photo {
+  border: solid #9FE695 5px;
+  margin-right: 10px;
+}
+
+#loser-photo {
+  border: solid #E69595 5px;
+  margin-left: 10px;
+  opacity: 0.5;
+}
+
 .last-photo {
   margin-top: 5px;
   width: 90px;
@@ -24,11 +49,11 @@
 }
 
 .prev-winner, .prev-loser {
-  text-align: center;
+  text-align: right;
 }
 
 p {
-  margin-top: calc(50px - 0.5em);
+  margin-top: calc(50px - 2em);
 }
 
 
