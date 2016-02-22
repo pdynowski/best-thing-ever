@@ -17,7 +17,6 @@ class Artist < ActiveRecord::Base
     if self.image_url == nil
       artist_name = format_artist_name_for_url
       url = "http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=#{artist_name}&api_key=#{Rails.application.secrets.lastfm_api_key}&format=json"
-      p url
       uri = URI(url)
       data = Net::HTTP.get(uri)
       parsed = JSON.parse(data)
