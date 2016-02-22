@@ -1,27 +1,33 @@
-
 <div class="prev-winner pure-u-1-2">
-  <div class="pure-u-1-3">
-    <p><%= @prev_winner.name %></p>
+  <div class="pure-u-1-2">
   </div>
-  <div class="pure-u-1-3" id="winner-photo">
-    <img class="last-photo" src="<%=@prev_winner.get_image_url%>">
+  <div class="pure-u-1-2">
+    <div class="pure-u-2-3">
+      <p><strong>Winner!</strong><br>
+      <strong>Artist:</strong> <%=@prev_winner.name%><br>
+      <strong>Rating:</strong> <%=@prev_winner_score %><br>
+      <strong>Rank:</strong>  <%= @prev_winner.ranking %></p>
+    </div>
+    <div class="pure-u-1-3" id="winner-photo">
+      <img class="last-photo" src="<%=@prev_winner.get_image_url%>">
+    </div>
   </div>
-  <div class="pure-u-1-3">
-    <p><%= @prev_winner_score %><br>
-    <strong>Rank:</strong>  <%= @prev_winner.ranking %></p>
+</div>
+<div class="prev-loser pure-u-1-2">
+  <div class="pure-u-1-2">
+  </div>
+  <div class="pure-u-1-2">
+    <div class="pure-u-1-3" id="loser-photo">
+      <img class="last-photo" src="<%=@prev_loser.get_image_url%>">
+    </div>
+    <div class="pure-u-2-3">
+      <p><strong>Loser!</strong><br>
+      <strong>Artist:</strong> <%=@prev_loser.name%><br>
+      <strong>Rating:</strong> <%=@prev_loser_score %><br>
+      <strong>Rank:</strong>  <%= @prev_loser.ranking %></p>
+    </div>
+
   </div>
 </div>
 
-<div class="prev-loser pure-u-1-2">
-  <div class="pure-u-1-3">
-    <p><%= @prev_loser_score %><br>
-    <strong>Rank:</strong> <%= @prev_loser.ranking %></p>
-  </div>
-  <div class="pure-u-1-3" id="loser-photo">
-    <img class="last-photo" src="<%=@prev_loser.get_image_url%>">
-  </div>
-  <div class="pure-u-1-3">
-    <p><%= @prev_loser.name %></p>
-  </div>
-</div>
 
