@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     artists = scores_sort.reverse.shift(40)
     @user_artists = artists.map do |artist|
       artist_obj = Artist.find(artist[0])
-      [artist_obj.ranking, artist_obj.name, artist[1]]
+      [artist_obj.ranking(@votes), artist_obj.name, artist[1]]
     end
     @user_artists
   end
