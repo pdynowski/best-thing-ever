@@ -30,10 +30,10 @@ describe UsersController do
     end
 
     it 'should assign users id to a session id' do
-      post :create, params = { user: {username: 'Papa', email: 'papa@papa.com', password: 'papa'}}
+      post :create, params = { user: {username: 'him', email: 'him@him', password: 'him'}}
       if user.save
         @request.session[:user_id] = User.last.id
-        # expect(response).to redirect_to(user_path(user))
+        expect(response).to redirect_to("/users/#{User.last.id}")
       end
     end
   end
@@ -82,8 +82,9 @@ describe UsersController do
     end
 
     # it 'should flash and error when user account was not destroyed' do
+
     #   session[:user_id] = User.last.id
-    #   post :destroy, { id: User.last.id }
+    #   delete :destroy, { id: 1, username: 1000000 }
     #   controller.flash[:user_error_destroy] = user.errors.full_messages.to_sentence
     #   expect(response).to render_template(:edit)
     # end
