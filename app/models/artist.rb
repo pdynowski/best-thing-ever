@@ -29,6 +29,12 @@ class Artist < ActiveRecord::Base
     end
   end
 
+  def ranking
+    ranks=[]
+    Hash[Artist.score.sort_by{|k, v| v}.reverse].each { |rank| ranks << rank[0] }
+    ranks.find_index(self.id) + 1
+  end
+
   class << self
     def get_random_artist
       Artist.all.shuffle[1]
