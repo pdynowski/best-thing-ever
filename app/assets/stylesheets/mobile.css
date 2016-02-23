@@ -1,6 +1,6 @@
 @media screen and (max-width:48em){
   #vote-area {
-  height: calc(100vh - 34px);
+    height: calc(100vh - 37px);
   }
 
   .option1-vote, .option2-vote {
@@ -8,7 +8,7 @@
   }
 
   .option-name {
-    font-size: 4em;
+    font-size: 2em;
   }
 
   #option1, #option2 {
@@ -16,30 +16,23 @@
     width: 100vw;
   }
 
-  .prev-winner, .prev-loser {
+  #prev-vote, footer>*, #hot-dog-menu {
     display:none;
   }
 
-  #hot-dog-menu{
-    display: none;
-  }
-
   #hamburger-menu {
-    display: initial;
     float: right;
     margin-right: 53px;
     margin-top: -4px;
   }
 
-  footer p {
-    display: none;
-  }
 }
 
 @media screen and (min-width:48em){
-    #vote-area {
+  #vote-area {
     height: calc(100vh - 161px);
   }
+
   .option1-vote, .option2-vote {
     height: 100%;
   }
