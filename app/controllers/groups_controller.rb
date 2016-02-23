@@ -56,6 +56,7 @@ class GroupsController < ApplicationController
         vote_set
       end
       @group_artists
+      render :show
     end
   end
 

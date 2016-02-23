@@ -14,7 +14,7 @@ class Artist < ActiveRecord::Base
   end
 
   def get_image_url
-    if Rails.cache.fetch(self.image_url) == nil
+    if self.image_url == nil
       artist_name = format_artist_name_for_url
       url = "http://ws.audioscrobbler.com/2.0/?method=artist.getInfo&artist=#{artist_name}&api_key=#{Rails.application.secrets.lastfm_api_key}&format=json"
       uri = URI(url)
@@ -33,11 +33,11 @@ class Artist < ActiveRecord::Base
     end
   end
 
-  def image_to_base64
-    uri = URI(self.image_url)
-    data = Net::HTTP.get(uri)
-    base64img = Base64.strict_encode64(data)
-  end
+  # def image_to_base64
+  #   uri = URI(self.image_url)
+  #   data = Net::HTTP.get(uri)
+  #   base64img = Base64.strict_encode64(data)
+  # end
 
 
   class << self
