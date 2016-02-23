@@ -10,6 +10,8 @@
             <li class="user-group"><a href="/groups/<%= group.id %>"><%= group.name %></a></li>
           <% end %>
         </ul>
+    <% else %>
+      <em>You haven't joined any groups yet. Look at the <a href="/groups">groups page</a> to get started!</em>
     <% end %>
 
     <h2>Your Top 40 Artists</h2>
