@@ -9,9 +9,9 @@ require 'rails_helper'
 feature 'user tries to create a new group' do
   before(:each) do
     visit '/sessions/new'
-    fill_in "Email", :with => "test@test.com"
-    fill_in "Password", :with => "test"
-    click_button "Login"
+    page.find("#js-free", visible: true).fill_in "Email", :with => "test@test.com"
+    page.find("#js-free", visible: true).fill_in "Password", :with => "test"
+    page.find("#js-free", visible: true).click_button "Login"
   end
   scenario 'user should see a form to create a group' do
     visit 'groups/new'

@@ -76,18 +76,12 @@ describe UsersController do
 
   describe 'POST #destroy' do
     it 'destroys a user and renders a new user page' do
-      session[:user_id] = User.last.id
+      destroyed_user_id = User.last.id
+      session[:user_id] = destroyed_user_id
       post :destroy, { id: User.last.id}
-      expect(response).to render_template(:new)
+      expect(User.last.id).to_not eq(destroyed_user_id)
+      expect(response).to redirect_to("/")
     end
-
-    # it 'should flash and error when user account was not destroyed' do
-
-    #   session[:user_id] = User.last.id
-    #   delete :destroy, { id: 1, username: 1000000 }
-    #   controller.flash[:user_error_destroy] = user.errors.full_messages.to_sentence
-    #   expect(response).to render_template(:edit)
-    # end
   end
 
 end
