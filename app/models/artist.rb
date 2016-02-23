@@ -22,14 +22,14 @@ class Artist < ActiveRecord::Base
       parsed = JSON.parse(data)
       self.image_url =  parsed["artist"]["image"][-3]["#text"].to_s
       self.save
-      # self.image_url
-      Rails.cache.write(self.image_url, image_to_base64)
-      p "No cached image."
-      image_to_base64
+      self.image_url
+      # Rails.cache.write(self.image_url, image_to_base64)
+      # p "No cached image."
+      # image_to_base64
     else
-      p "Yes cached image."
-      Rails.cache.fetch(self.image_url)
-      # self.image_url
+      # p "Yes cached image."
+      # Rails.cache.fetch(self.image_url)
+      self.image_url
     end
   end
 
