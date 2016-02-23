@@ -1,10 +1,14 @@
 @media screen and (max-width:48em){
   #vote-area {
-  height: calc(100vh - 55px);
+  height: calc(100vh - 34px);
   }
 
   .option1-vote, .option2-vote {
     height: 50%;
+  }
+
+  .option-name {
+    font-size: 4em;
   }
 
   #option1, #option2 {
@@ -14,6 +18,17 @@
 
   .prev-winner, .prev-loser {
     display:none;
+  }
+
+  #hot-dog-menu{
+    display: none;
+  }
+
+  #hamburger-menu {
+    display: initial;
+    float: right;
+    margin-right: 53px;
+    margin-top: -4px;
   }
 
   footer p {
@@ -34,5 +49,16 @@
     width: 50vw;
   }
 
+  .hot-dog-menu{
+    display: initial;
+  }
+
+  .option-name {
+    font-size: 5em;
+  }
+
+  #hamburger-menu {
+    display: none;
+  }
 
 }
