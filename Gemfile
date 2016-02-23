@@ -33,6 +33,10 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'faker'
 
+# Use Dalli for caching
+gem 'dalli'
+gem 'memcachier'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
