@@ -50,15 +50,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    user = User.find(session[:user_id])
-    if user.destroy
-      reset_session
-      flash[:user_successful_destroy] = "User account deleted."
-      render :new
-    else
-      flash[:user_error_destroy] = user.errors.full_messages.to_sentence
-      render :edit
-    end
+    User.find(session[:user_id]).destroy
+    reset_session
+    redirect_to "/"
   end
 
   private

@@ -1,0 +1,30 @@
+<div id='modal-login' class='modal'>
+  <div class='modal-content'>
+    <span class='close'>x</span>
+    <div class="pure-g">
+      <div class="modal-form">
+        <div class="pure-u-1">
+        <% if flash[:login_error] %>
+          <div class='error'><%= flash[:login_error] %></div>
+        <% end %>
+        </div>
+      </div>
+      <div class="pure-u-1 user-form">
+      <h2>Log in</h2>
+
+      <%= form_for :session, url: sessions_path, html: {class: "pure-form pure-form-stacked"} do |f| %>
+          <div class="pure-control-group">
+            <%= f.email_field :email, placeholder: "Email" %>
+          </div>
+          <div class="pure-control-group">
+            <%= f.password_field :password, placeholder: "Password" %>
+          </div>
+          <div class="pure-control-group">
+            <%= f.submit :Login, class: 'pure-button pure-button-primary' %>
+          </div>
+      <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>
