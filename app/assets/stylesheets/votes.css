@@ -1,7 +1,3 @@
-#vote-area {
-  height: calc(100vh - 37px);
-}
-
 .option1-vote, .option2-vote {
   text-align: center;
   text-decoration: none;
@@ -42,6 +38,12 @@
 
 .prev-loser {
   text-align: left;
+}
+
+footer p{
+  margin: 0 auto;
+  text-align: center;
+  font-weight: bold;
 }
 
 p {

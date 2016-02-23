@@ -1,17 +1,9 @@
-
-
 .dev-pics {
   height: 12em;
   width: 12em;
   border-radius: 10em;
 }
 
-
-/*.pure-g [class *= "pure-u"] {
-    font-family: sans-serif;
-    display: flex;
-}
-*/
 a {
   text-decoration: none;
   color: black;
