@@ -34,8 +34,7 @@ feature 'User voting on a faceoff' do
     expect(page).to_not have_selector('.prev-loser')
   end
 
-  scenario 'when user clicks on artist1, it creates a vote
-    with artist1 as winner and artist2 as loser' do
+  scenario 'when user clicks on artist1, it creates a vote with artist1 as winner and artist2 as loser' do
     visit '/'
     allow_any_instance_of(Vote).to receive(:winner_id).and_return(1)
     allow_any_instance_of(Vote).to receive(:loser_id).and_return(2)
