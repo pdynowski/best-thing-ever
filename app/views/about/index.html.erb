@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>Quick words on many topics...</h1>
+  <h2>Data retrieval:</h2>
+    <p>
+      <ul>
+      <li>The 1000 artists used in this app were retrieved using the Echonest API and selecting the top 1000 by familiarity. </li>
+      <li>The pictures of the artists are retrieved using image urls retrieved with the last.fm API</li>
+    </ul>
+    </p>
+  <h2>About ratings and rankings: </h2>
+    <p>
+      <ul>
+        <li> Rankings are the ordinal location of the artists within the 1000 artists</li>
+        <li> Ratings are the net rating according to an Elo rating system applied to the user votes between pairs of artists.
+        </li>
+      </ul>
+    </p>
+    <h2>About the Elo rating system:</h2>
+    <p>
+      <ul>
+        <li>
+          Short answer: it's a way to rate competitors in one-on-one comparisons; in any competition, the winner takes points from the loser; the more unlikely the win, the more points the winner gets and the more points the loser loses. The likelihood of a win is calculated based on ratings prior to the comparison.
+        </li>
+        <li>
+          Longer, mathier answer: <%= link_to "Elo rating system", "https://en.wikipedia.org/wiki/Elo_rating_system" %> on Wikipedia
+        </li>
+    </ul>
+    </p>
+
+
+</div>
+
