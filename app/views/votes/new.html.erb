@@ -1,9 +1,7 @@
-<div class='animated fadeInUp'>
-  <div class="pure-g" >
-      <% if @prev_winner %>
-        <%= render partial: "votes/previous_vote_results" %>
-      <% end %>
-  </div>
+<div id="prev-vote" class="pure-g animated fadeInUp" >
+  <% if @prev_winner %>
+    <%= render partial: "votes/previous_vote_results" %>
+  <% end %>
 </div>
 
 <div class="pure-g" id="vote-area">
