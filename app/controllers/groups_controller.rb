@@ -40,9 +40,10 @@ class GroupsController < ApplicationController
         value
       end
       artists = scores_sort.reverse.shift(40)
+      artist_ranks = Artist.ranking(@votes)
       @group_artists = artists.map do |artist|
         artist_obj = Artist.find(artist[0])
-        [artist_obj.ranking(@votes), artist_obj.name, artist[1]]
+        [artist_ranks[artist[0]], artist_obj.name, artist[1]]
       end
       @last_votes =
       @votes.sort{|v1, v2| v2.created_at <=> v1.created_at}.shift(20).map do |vote|
@@ -55,7 +56,6 @@ class GroupsController < ApplicationController
         vote_set
       end
       @group_artists
-      render :show
     end
   end
 

@@ -28,35 +28,39 @@ class Artist < ActiveRecord::Base
     end
   end
 
-  def ranking(votes = Vote.all)
-    ranks=[]
-    position = 0
-    last_score = nil
-    Hash[Artist.score(votes).sort_by{|k,v| v}.reverse].each { |rank|
-      if rank[1] == last_score
-        rank << position
-        ranks << rank
-        last_score = rank[1]
-      else
-        position += 1
-        rank << position
-        ranks << rank
-        last_score = rank[1]
-      end
-    }
-    ranks.each do |rank|
-      if rank[0] == self.id
-        return rank[2]
-      end
-    end
-  end
+
 
   class << self
     def get_random_artist
       Artist.all.shuffle[1]
     end
 
+    def ranking(votes = Vote.all)
+      start_time = Time.now
+      ranks=[]
+      position = 0
+      last_score = nil
+      Hash[Artist.score(votes).sort_by{|k,v| v}.reverse].each { |rank|
+        if rank[1] == last_score
+          rank << position
+          ranks << rank
+          last_score = rank[1]
+        else
+          position += 1
+          rank << position
+          ranks << rank
+          last_score = rank[1]
+        end
+      }
+      ranks_hash = {}
+      ranks.each do |rank|
+        ranks_hash[rank[0]] = rank[2]
+      end
+      ranks_hash
+    end
+
     def score(votes = Vote.all)
+      start_time = Time.now
       artist_hash = {}
 
       votes.each do |vote|
@@ -71,7 +75,7 @@ class Artist < ActiveRecord::Base
         artist_hash[vote.winner_id] = new_scores[:winner]
         artist_hash[vote.loser_id] = new_scores[:loser]
       end
-        return artist_hash
+      return artist_hash
     end
 
     def assign_elo_points(voted_artists)
