@@ -25,11 +25,11 @@
       <div class="pure-control-group">
         <%= f.submit :Update, class: 'pure-button pure-button-primary' %>
       </div>
-      <div class="pure-control-group">
-        <%= form_for :user, method: :delete, data: { confirm: "Are you sure you want to delete your account? "} do |f| %>
-          <%= f.submit :Delete, id: 'delete-user', class: 'pure-button pure-button-primary' %>
-        <% end %>
-      </div>
     <% end %>
+    <div class="pure-control-group">
+      <%= form_for @user, method: :delete, data: { confirm: "Are you sure you want to delete your account? "} do |f| %>
+        <%= f.submit :Delete, id: 'delete-user', class: 'pure-button pure-button-primary' %>
+      <% end %>
+    </div>
   </div>
 </div>
