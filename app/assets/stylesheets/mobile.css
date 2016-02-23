@@ -1,6 +1,6 @@
 @media screen and (max-width:48em){
-  body {
-    height: 800px;
+  #vote-area {
+  height: calc(100vh - 55px);
   }
 
   .option1-vote, .option2-vote {
@@ -11,9 +11,20 @@
     height: 100%;
     width: 100vw;
   }
+
+  .prev-winner, .prev-loser {
+    display:none;
+  }
+
+  footer p {
+    display: none;
+  }
 }
 
 @media screen and (min-width:48em){
+    #vote-area {
+    height: calc(100vh - 161px);
+  }
   .option1-vote, .option2-vote {
     height: 100%;
   }
@@ -22,4 +33,6 @@
     height: 100%;
     width: 50vw;
   }
+
+
 }
