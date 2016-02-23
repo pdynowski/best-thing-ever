@@ -11,11 +11,17 @@ class VotesController < ApplicationController
       @prev_winner_ranking = rankings[@prev_winner.id]
       @prev_loser_ranking = rankings[@prev_loser.id]
     end
-    @option1 = Artist.get_random_artist
-    @option2 = Artist.get_random_artist
-    until @option1 != @option2
-      @option2 = Artist.get_random_artist
+
+    if !session[:next_pairs] #first visit
+      pair = Artist.get_artist_pair
+      @option1 = pair[0]
+      @option2 = pair[1]
+    else #other visits
+      @option1 =  Artist.find(session[:next_pairs][0])
+      @option2 = Artist.find(session[:next_pairs][1])
     end
+      session_pair = Artist.get_artist_pair
+      session[:next_pairs] = [session_pair[0].id, session_pair[1].id]
     @vote = Vote.new()
   end
 
