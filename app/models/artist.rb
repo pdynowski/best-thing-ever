@@ -23,11 +23,18 @@ class Artist < ActiveRecord::Base
       self.image_url =  parsed["artist"]["image"][-3]["#text"].to_s
       self.save
       self.image_url
+      image_to_base64
     else
       self.image_url
+      image_to_base64
     end
   end
 
+  def image_to_base64
+    uri = URI(self.image_url)
+    data = Net::HTTP.get(uri)
+    base64img = Base64.encode64(data)
+  end
 
 
   class << self
