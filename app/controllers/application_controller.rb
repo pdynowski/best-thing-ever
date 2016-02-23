@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
   include CurrentUserHelper
 
   def require_login
-    puts "requiring login-----------------------------------"
     unless logged_in?
       flash[:error] = "You must be logged in to access this section"
       redirect_to root_path
