@@ -11,11 +11,23 @@
 <body>
   <header class="pure-menu pure-menu-horizontal">
     <a href="/" class="pure-menu-heading pure-menu-link">Best Thing Ever</a>
-      <ul class="pure-menu-list">
+      <ul class="pure-menu-list" id="hot-dog-menu">
         <li class="pure-menu-item"><a href="/artists" class="pure-menu-link">Top Scores</a></li>
         <li class="pure-menu-item"><a href="/" class="pure-menu-link">Vote Again</a></li>
         <%= render '/sessions/login_items' %>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">&#9776;</a></li>
+        </ul>
+        <ul class="pure-menu-list" id="hamburger-menu">
+        <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover"><a href="#" class="pure-menu-link">&#9776;</a>
+          <ul class = "pure-menu-children">
+            <li class="pure-menu-item">
+              <a href="/artists" class="pure-menu-link">Top Scores</a>
+            </li>
+            <li class="pure-menu-item">
+              <a href="/" class="pure-menu-link">Vote Again</a>
+            </li>
+            <%= render '/sessions/login_items' %>
+          </ul>
+        </li>
       </ul>
   </header>
   <%= yield %>
