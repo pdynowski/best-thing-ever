@@ -45,6 +45,15 @@ class Artist < ActiveRecord::Base
       Artist.all.shuffle[1]
     end
 
+    def get_artist_pair
+      artist1 = Artist.get_random_artist
+      artist2 = Artist.get_random_artist
+      until artist1 != artist2
+        artist2 = Artist.get_random_artist
+      end
+      [artist1, artist2]
+    end
+
     def ranking(votes = Vote.all)
       start_time = Time.now
       ranks=[]
