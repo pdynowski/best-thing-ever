@@ -9,10 +9,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <% reload_string = params[:controller] == 'votes' ? 'Skip' : 'Go vote'%>
+  <% reload_string = params[:controller] == 'votes' ? 'Skip' : 'Vote'%>
   <header class="pure-menu pure-menu-horizontal">
     <a href="/" class="pure-menu-heading">Best Thing Ever</a>
-    <a href="/" class="pure-menu-heading pure-menu-link"><%= reload_string%></a>
       <ul class="pure-menu-list" id="hot-dog-menu">
         <li class="pure-menu-item"><a href="#" id='directions-modal-link' class='pure-menu-link'>How to Play</a></li>
         <li class="pure-menu-item"><a href="/artists" class="pure-menu-link">Top Scores</a></li>
@@ -20,6 +19,7 @@
         <li class="pure-menu-item"><a href="/about" class="pure-menu-link">How Ratings Work</a></li>
         </ul>
         <ul class="pure-menu-list" id="hamburger-menu">
+        <li class="pure-menu-item"><a href="/" class="pure-menu-link"><%= reload_string%></a></li>
         <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover"><a href="#" class="pure-menu-link">&#9776;</a>
           <ul class = "pure-menu-children">
             <li class="pure-menu-item">
