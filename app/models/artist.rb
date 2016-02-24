@@ -50,13 +50,16 @@ class Artist < ActiveRecord::Base
       ranks=[]
       position = 0
       last_score = nil
+      people_at_position = 1
       Hash[Artist.score(votes).sort_by{|k,v| v}.reverse].each { |rank|
         if rank[1] == last_score
           rank << position
           ranks << rank
           last_score = rank[1]
+          people_at_position += 1
         else
-          position += 1
+          position += people_at_position
+          people_at_position = 1
           rank << position
           ranks << rank
           last_score = rank[1]
