@@ -1,0 +1,38 @@
+Initial benchmarking: votes#new controller
+100 runs:
+  Block with previous selection:
+    user        system    total     real
+    78.990000   1.020000  80.010000 ( 81.225842)
+    Avg  0.79       0.01       0.80
+  Block to select new artists:
+    user       system       total  real
+    3.930000   0.070000   4.000000 (  4.123133)
+    Avg 0.04       0.00       0.04
+More specific results on previous selection block:
+  100 runs:
+    Artist.score:
+      user     system      total        real
+      38.470000   0.370000  38.840000 ( 39.254346)
+      Avg  0.38       0.00       0.38
+    Artist.rating:
+      user        system    total     real
+      38.830000   0.430000  39.260000 ( 39.730903)
+      Avg  0.39       0.00       0.39
+Note that Artist.score is called a second time from Artist.rating, so most of the #rating time is taken by the #score calcs
+Pass results of #score run into #rankings instead of recalling and re-benchmark:
+  100 runs:
+    Artist.score:
+      user        system    total     real
+      38.410000   0.330000  38.740000 ( 39.091827)
+      Avg  0.38       0.00       0.39
+    Artist.rating:
+      user       system     total    real
+      0.320000   0.000000   0.320000 (  0.322970)
+      Avg 0.00       0.00       0.00
+===> Cut about 50% of the time off of the new route in the controller
+100 runs:
+  Block with previous selection:
+    user        system    total     real
+    39.260000   0.400000  39.660000 ( 40.028652)
+    Avg  0.39       0.00       0.40
+
