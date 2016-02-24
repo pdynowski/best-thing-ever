@@ -1,22 +1,27 @@
 class VotesController < ApplicationController
-
+  require "benchmark"
   def new
     if flash[:prev_winner_id]
       @prev_winner = Artist.find(flash[:prev_winner_id])
       @prev_loser = Artist.find(flash[:prev_loser_id])
+
       scores = Artist.score
-      rankings = Artist.ranking
+      rankings = Artist.ranking(scores)
+
       @prev_winner_score = scores[@prev_winner.id]
       @prev_loser_score = scores[@prev_loser.id]
       @prev_winner_ranking = rankings[@prev_winner.id]
       @prev_loser_ranking = rankings[@prev_loser.id]
     end
+
     @option1 = Artist.get_random_artist
     @option2 = Artist.get_random_artist
+
     until @option1 != @option2
       @option2 = Artist.get_random_artist
     end
     @vote = Vote.new()
+
   end
 
   def create
@@ -29,4 +34,5 @@ class VotesController < ApplicationController
       render new
     end
   end
+
 end
