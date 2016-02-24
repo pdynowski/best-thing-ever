@@ -45,13 +45,13 @@ class Artist < ActiveRecord::Base
       Artist.all.shuffle[1]
     end
 
-    def ranking(votes = Vote.all)
+    def ranking(scores)
       start_time = Time.now
       ranks=[]
       position = 0
       last_score = nil
       people_at_position = 1
-      Hash[Artist.score(votes).sort_by{|k,v| v}.reverse].each { |rank|
+      Hash[scores.sort_by{|k,v| v}.reverse].each { |rank|
         if rank[1] == last_score
           rank << position
           ranks << rank
