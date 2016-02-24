@@ -21,6 +21,9 @@
         <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover"><a href="#" class="pure-menu-link">&#9776;</a>
           <ul class = "pure-menu-children">
             <li class="pure-menu-item">
+              <a href="#" class="pure-menu-link" id="mobile-directions-modal-link">How to Play</a>
+            </li>
+            <li class="pure-menu-item">
               <a href="/artists" class="pure-menu-link">Top Scores</a>
             </li>
             <li class="pure-menu-item">
@@ -34,6 +37,7 @@
   <%= render '/sessions/login_modal' %>
   <%= render '/users/new_modal' %>
   <%= render '/about/directions_modal' %>
+  <%= render '/about/mobile_directions_modal' %>
   <%= yield %>
   <footer>
     <p><a href="/developers">Team FoxTato</a> &copy; 2016</p>

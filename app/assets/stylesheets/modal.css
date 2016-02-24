@@ -28,7 +28,17 @@
     margin: 0 auto;
 }
 
-#modal-directions {
+#mobile-modal-directions {
+    position: fixed;
+    top: 25%;
+    left: 0px;
+    color: white;
+    background-color: black;
+    width: 100%;
+    height: 50%;
+}
+
+#desktop-modal-directions{
     position: fixed;
     color: white;
     background-color: black;
@@ -37,7 +47,7 @@
     margin: 10% auto;
 }
 
-#modal-directions .pure-u-1 {
+#desktop-modal-directions .pure-u-1 {
     position: absolute;
     top: 20%;
     width: 40%;
