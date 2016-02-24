@@ -19,20 +19,20 @@
         <li class="pure-menu-item"><a href="/about" class="pure-menu-link">How Ratings Work</a></li>
         </ul>
         <ul class="pure-menu-list" id="hamburger-menu">
-        <li class="pure-menu-item"><a href="/" class="pure-menu-link"><%= reload_string%></a></li>
-        <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover"><a href="#" class="pure-menu-link">&#9776;</a>
-          <ul class = "pure-menu-children">
-            <li class="pure-menu-item">
-              <a href="#" class="pure-menu-link" id="mobile-directions-modal-link">How to Play</a>
-            </li>
-            <li class="pure-menu-item">
-              <a href="/artists" class="pure-menu-link">Top Scores</a>
-            </li>
-            <li class="pure-menu-item">
-            <%= render '/sessions/login_items' %>
-            <li class="pure-menu-item"><a href="/about" class="pure-menu-link">Ratings Info</a></li>
-          </ul>
-        </li>
+          <li class="pure-menu-item"><a href="/" class="pure-menu-link"><%= reload_string%></a></li>
+          <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover"><a href="#" class="pure-menu-link">&#9776;</a>
+            <ul class = "pure-menu-children">
+              <li class="pure-menu-item">
+                <a href="#" class="pure-menu-link" id="mobile-directions-modal-link">How to Play</a>
+              </li>
+              <li class="pure-menu-item">
+                <a href="/artists" class="pure-menu-link">Top Scores</a>
+              </li>
+              <li class="pure-menu-item">
+              <%= render '/sessions/login_items' %>
+              <li class="pure-menu-item"><a href="/about" class="pure-menu-link">Ratings Info</a></li>
+            </ul>
+          </li>
       </ul>
   </header>
   <%= render '/sessions/login_modal' %>
