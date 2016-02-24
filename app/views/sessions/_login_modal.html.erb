@@ -1,5 +1,6 @@
 <div id='modal-login' class='modal'>
   <div class='modal-content'>
+
     <div class="pure-g">
       <div class="modal-form">
         <div class="pure-u-1">
@@ -19,11 +20,11 @@
             <%= f.password_field :password, placeholder: "Password" %>
           </div>
           <div class="pure-control-group">
-            <%= f.submit :Login, class: 'pure-button pure-button-primary' %>
+            <%= f.submit :Login, class: 'pure-button pure-button-primary' %><span class='close'>x</span>
           </div>
       <% end %>
       </div>
-    <span class='close'>x</span>
+
     </div>
 
   </div>
