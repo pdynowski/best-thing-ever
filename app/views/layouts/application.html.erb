@@ -12,7 +12,7 @@
   <header class="pure-menu pure-menu-horizontal">
     <a href="/" class="pure-menu-heading pure-menu-link">Best Thing Ever</a>
       <ul class="pure-menu-list" id="hot-dog-menu">
-        <!-- <li class="pure-menu-item"><a href="#" id='info-modal-link' class='pure-menu-link'>How to Play</a></li> -->
+        <li class="pure-menu-item"><a href="#" id='directions-modal-link' class='pure-menu-link'>How to Play</a></li>
         <li class="pure-menu-item"><a href="/artists" class="pure-menu-link">Top Scores</a></li>
         <li class="pure-menu-item"><a href="/" class="pure-menu-link">Skip</a></li>
         <%= render '/sessions/login_items' %>
@@ -33,12 +33,7 @@
   </header>
   <%= render '/sessions/login_modal' %>
   <%= render '/users/new_modal' %>
-  <!-- <div id='modal-info' class='modal'>
-    <div class='modal-content'>
-      <span class='close'>x</span>
-      <p>Choose which artist you like best! Use your left and right arrow keys to choose or just click with your mouse. You can skip a pair by pressing the down arrow key or just click 'Vote Again.'</p>
-    </div>
-  </div> -->
+  <%= render '/about/directions_modal' %>
   <%= yield %>
   <footer>
     <p><a href="/developers">Team FoxTato</a> &copy; 2016</p>
