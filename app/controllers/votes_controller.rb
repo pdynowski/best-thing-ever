@@ -27,7 +27,6 @@ class VotesController < ApplicationController
     session_pair = Artist.get_artist_pair
     session[:next_pairs] = [session_pair[0].id, session_pair[1].id]
     @vote = Vote.new()
-
   end
 
   def create
