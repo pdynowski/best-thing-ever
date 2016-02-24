@@ -1,6 +1,5 @@
 <div id='modal-login' class='modal'>
   <div class='modal-content'>
-    <span class='close'>x</span>
     <div class="pure-g">
       <div class="modal-form">
         <div class="pure-u-1">
@@ -10,7 +9,7 @@
         </div>
       </div>
       <div class="pure-u-1 user-form">
-      <h2>Log in</h2>
+      <!-- <h2 class='pure-button pure-button'>Log in</h2> -->
 
       <%= form_for :session, url: sessions_path, html: {class: "pure-form pure-form-stacked"} do |f| %>
           <div class="pure-control-group">
@@ -24,6 +23,7 @@
           </div>
       <% end %>
       </div>
+    <span class='close'>x</span>
     </div>
 
   </div>
