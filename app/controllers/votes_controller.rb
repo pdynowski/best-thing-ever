@@ -26,6 +26,8 @@ class VotesController < ApplicationController
     session[:id2] = @option2.id
     session_pair = Artist.get_artist_pair
     session[:next_pairs] = [session_pair[0].id, session_pair[1].id]
+    @preload1 = Artist.find(session[:next_pairs][0])
+    @preload2 = Artist.find(session[:next_pairs][1])
     @vote = Vote.new()
   end
 
