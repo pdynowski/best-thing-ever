@@ -28,6 +28,33 @@
     margin: 0 auto;
 }
 
+#mobile-modal-directions {
+    position: fixed;
+    top: 25%;
+    left: 0px;
+    color: white;
+    background-color: black;
+    width: 100%;
+    height: 50%;
+}
+
+#desktop-modal-directions{
+    position: fixed;
+    color: white;
+    background-color: black;
+    height: 30%;
+    width: 100%;
+    margin: 10% auto;
+}
+
+#desktop-modal-directions .pure-u-1 {
+    position: absolute;
+    top: 20%;
+    width: 40%;
+    left: 30%;
+}
+
+
 /* The Close Button */
 .close {
     color: #aaa;
