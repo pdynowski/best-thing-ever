@@ -1,9 +1,6 @@
 <div id='modal-register' class='modal'>
   <div class='modal-content'>
-    <span class='close'>x</span>
-
       <div class="pure-g">
-
       <div class="pure-u-1">
         <% if flash[:user_create_error] %>
           <div class="error"><%= flash[:user_create_error] %></div>
@@ -13,19 +10,14 @@
         <% end %>
       </div>
       <div class="pure-u-1 user-form">
-        <h2>Register</h2>
         <%= form_for :user, url: users_path, html: { class: "pure-form pure-form-stacked"} do |f| %>
           <div class="pure-control-group">
-            <%= f.label :username %>
             <%= f.text_field :username, placeholder: "Username" %>
           </div>
           <div class="pure-control-group">
-            <%= f.label :email %>
             <%= f.email_field :email, placeholder: "Email" %>
-
           </div>
           <div class="pure-control-group">
-            <%= f.label :password %>
             <%= f.password_field :password, placeholder: "Password" %>
           </div>
           <div class="pure-control-group">
@@ -33,6 +25,7 @@
           </div>
         <% end %>
   </div>
+  <span class='close'>x</span>
 </div>
 
   </div>
