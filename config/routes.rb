@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :entourages, only: [:new, :create]
   resources :developers, only: [:index]
   resources :about, only: [:index]
+  resources :comments, only [:create]
   root 'votes#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
