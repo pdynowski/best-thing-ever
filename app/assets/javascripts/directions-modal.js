@@ -6,7 +6,7 @@ $(document).ready(function(){
   });
 
 
-  $('.close').on("click", function(event) {
+  $('.dir-close').on("click", function(event) {
 
     $('#desktop-modal-directions').css('display', 'none');
     $('#mobile-modal-directions').css('display', 'none');
