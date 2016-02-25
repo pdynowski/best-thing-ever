@@ -96,14 +96,15 @@
 
 /* The Close Button */
 .close {
-    color: #aaa;
+    color: #38a2ff;
     font-size: 28px;
     font-weight: bold;
+    padding-left: 80px;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: white;
     text-decoration: none;
     cursor: pointer;
 }

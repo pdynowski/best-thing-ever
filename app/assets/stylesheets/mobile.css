@@ -1,4 +1,6 @@
-@media screen and (max-width:48em){
+/*Portrait Phone*/
+@media screen and (max-width:35.5em){
+
   #vote-area {
     height: calc(100vh - 37px);
   }
@@ -16,8 +18,34 @@
     width: 100vw;
   }
 
-  #prev-vote, footer>*, #hot-dog-menu {
+  #winner-photo, #loser-photo, footer>*, #hot-dog-menu {
     display:none;
+  }
+
+  #prev-vote {
+    position:absolute;
+    top: 30px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.6);
+    z-index: 1;
+  }
+
+  #prev-loser-text, #prev-winner-text {
+    width:100%;
+  }
+
+  #prev-loser-text{
+    margin-top: -10px;
+    margin-left: 70px;
+  }
+
+  #prev-winner-text{
+    margin-top: -10px;
+    margin-left: 40px;
+  }
+
+  #prev-vote p {
+    font-size: .75em;
   }
 
   #hamburger-menu {
@@ -28,7 +56,48 @@
 
 }
 
+/*Tablet*/
+@media screen and (min-width:35.5em) and (max-width:48em){
+
+  #vote-area {
+    height: calc(100vh - 37px);
+  }
+
+  .option1-vote, .option2-vote {
+    height: 100%;
+  }
+
+  .option-name {
+    font-size: 3em;
+  }
+
+  #prev-vote {
+    position:absolute;
+    top: 30px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.6);
+    z-index: 1;
+  }
+
+  footer>*, #hot-dog-menu {
+    display:none;
+  }
+
+  #hamburger-menu {
+    float: right;
+    margin-right: 53px;
+    margin-top: -4px;
+  }
+
+   #option1, #option2 {
+    height: 100%;
+    width: 50vw;
+  }
+}
+
+/*Big Screen*/
 @media screen and (min-width:48em){
+
   #vote-area {
     height: calc(100vh - 161px);
   }
@@ -42,7 +111,7 @@
     width: 50vw;
   }
 
-  .hot-dog-menu{
+  #hot-dog-menu{
     display: initial;
   }
 

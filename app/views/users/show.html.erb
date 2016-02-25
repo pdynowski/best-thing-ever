@@ -1,10 +1,14 @@
 <div class="pure-g">
-  <div class="pure-u-1-12">
-  </div>
-  <div class="pure-u-11-12">
+  <div class="pure-u-1-24"></div>
+  <div class="pure-u-22-24">
     <h1><%= User.find(params[:id]).username %>'s Profile</h1>
     <% if @groups.length > 0 %>
-      <h2>Your Groups</h2>
+      <% if current_user %>
+        <h2>Your Groups</h2>
+      <% else %>
+        <h2><%= User.find(params[:id]).username %>'s Groups</h2>
+      <% end %>
+
         <ul>
           <% @groups.each do |group| %>
             <li class="user-group"><a href="/groups/<%= group.id %>"><%= group.name %></a></li>
@@ -14,15 +18,24 @@
       <em>You haven't joined any groups yet. Look at the <a href="/groups">groups page</a> to get started!</em>
     <% end %>
 
-    <h2>Your Top 40 Artists</h2>
+    <% if current_user %>
+       <h2>Your Top 40 Artists</h2>
+    <% else %>
+      <h2><%= User.find(params[:id]).username %>'s Top 40 Artists</h2>
+    <% end %>
       <% if @user_artists.length > 0 %>
         <%= render partial: 'artists/rankings_table', locals: {artists: @user_artists} %>
       <% else %>
-        <em>You haven't voted on any artists yet. <a href="/">Get started now!</a></em>
+        <% if current_user %>
+         <em>You haven't voted on any artists yet. <a href="/">Get started now!</a></em>
+        <% else %>
+          <em><%= User.find(params[:id]).username %> hasn't voted on any artists yet.</em>
+        <% end %>
       <% end %>
 
       <% if current_user %>
         <p><%= link_to 'Edit Your Profile', edit_user_path(current_user) %></p>
       <% end %>
+  <div class="pure-u-1-24"></div>
   </div>
 </div>

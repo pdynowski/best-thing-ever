@@ -1,5 +1,5 @@
 <div class="prev-winner pure-u-sm-1-2">
-  <div class="pure-u-1-2">
+  <div id="prev-winner-text" class="pure-u-1-2">
     <p><strong>Winner!</strong><br>
     <strong>Artist:</strong> <%=@prev_winner.name%><br>
     <strong>Rating:</strong> <%=@prev_winner_score %><br>
@@ -16,7 +16,7 @@
     <img class="last-photo" src="<%=@prev_loser.get_image_url%>">
   </div>
 
-  <div class="pure-u-1-2">
+  <div id="prev-loser-text" class="pure-u-1-2">
     <p><strong>Loser!</strong><br>
     <strong>Artist:</strong> <%=@prev_loser.name%><br>
     <strong>Rating:</strong> <%=@prev_loser_score %><br>
