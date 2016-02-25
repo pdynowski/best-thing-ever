@@ -5,5 +5,6 @@ describe Group do
   it { should have_many(:entourages) }
   it { should have_many(:users) }
   it { should have_secure_password }
+  it { should have_many(:comments)}
 
 end
