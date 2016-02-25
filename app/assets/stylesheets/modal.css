@@ -94,6 +94,12 @@
     left: 30%;
 }
 
+#arrows {
+    float: right;
+    height: 5em;
+    width: 15em;
+}
+
 /* The Close Button */
 .close {
     color: #38a2ff;
