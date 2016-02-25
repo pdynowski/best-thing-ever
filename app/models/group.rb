@@ -5,4 +5,5 @@ class Group < ActiveRecord::Base
   has_many :entourages
   has_many :users, through: :entourages
   has_many :votes, through: :users
+  has_many :comments
 end

@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
   has_many :votes, dependent: :destroy
   has_many :entourages
   has_many :groups, through: :entourages
+  has_many :comments
 end
