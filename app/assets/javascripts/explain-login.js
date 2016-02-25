@@ -22,7 +22,7 @@ $(document).ready(function(){
               event.preventDefault();
               event.stopPropagation();
 
-              $('.close').on("click", function(event) {
+              $('.dir-close').on("click", function(event) {
                 $('#modal-explain').css('display', 'none');
               });
           };

@@ -101,6 +101,21 @@
 }
 
 /* The Close Button */
+.dir-close{
+    float: left;
+    color: #38a2ff;
+    font-size: 28px;
+    font-weight: bold;
+    /*padding-left: 80px;*/
+}
+
+.dir-close:hover,
+.dir-close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .close {
     color: #38a2ff;
     font-size: 28px;
