@@ -7,15 +7,9 @@
     </tr>
   </thead>
   <tbody class="artist-rankings">
-    <% last_place_printed = 0 %>
     <% artists.each do |artist| %>
       <tr class="artist-row">
-        <% if artist[0] != last_place_printed %>
-          <td class="artist-rank"><%= artist[0].ordinalize %></td>
-          <% last_place_printed = artist[0] %>
-        <% else %>
-          <td class="artist-rank"></td>
-        <% end %>
+        <td class="artist-rank"><%= artist[0].ordinalize %></td>
         <td class="artist-name"><%= artist[1] %></td>
         <td class="artist-score"><%= artist[2] %></td>
       </tr>
