@@ -1,7 +1,7 @@
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 999; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -24,16 +24,29 @@
     }
 }
 
+.modal-content {
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border-radius: 15px;
+    width: 22%; /* Could be more or less, depending on screen size */
+}
+@media screen and (max-width:48em){
+    .modal-content {
+        width: 60%
+    }
+}
+
 .modal-form {
     margin: 0 auto;
 }
 
+/* Modal directions */
 #mobile-modal-directions {
     position: fixed;
     top: 25%;
     left: 0px;
     color: white;
-    background-color: black;
+    background-color: #4c4c4c;
     width: 100%;
     height: 50%;
 }
@@ -41,13 +54,40 @@
 #desktop-modal-directions{
     position: fixed;
     color: white;
-    background-color: black;
+    background-color: #4c4c4c;
     height: 30%;
     width: 100%;
     margin: 10% auto;
 }
 
 #desktop-modal-directions .pure-u-1 {
+    position: absolute;
+    top: 20%;
+    width: 40%;
+    left: 30%;
+}
+
+/* Modal Explain */
+#modal-explain {
+    position: fixed;
+    top: 25%;
+    left: 0px;
+    color: white;
+    background-color: #4c4c4c;
+    width: 100%;
+    height: 50%;
+}
+
+#modal-explain{
+    position: fixed;
+    color: white;
+    background-color: #4c4c4c;
+    height: 30%;
+    width: 100%;
+    margin: 10% auto;
+}
+
+#modal-explain .pure-u-1 {
     position: absolute;
     top: 20%;
     width: 40%;

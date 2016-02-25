@@ -1,6 +1,7 @@
 class VotesController < ApplicationController
   require "benchmark"
   def new
+
     if flash[:prev_winner_id]
       @prev_winner = Artist.find(flash[:prev_winner_id])
       @prev_loser = Artist.find(flash[:prev_loser_id])
