@@ -1,6 +1,4 @@
-
-
-
+<% if !session[:user_id] %>
   <div id="modal-explain" class='modal'>
     <div class="modal-header">
       <span class="close">×</span>
@@ -10,5 +8,5 @@
       <p>Take a look at the menu bar and click on groups.</p>
     </div>
   </div>
-
+<% end %>
 
