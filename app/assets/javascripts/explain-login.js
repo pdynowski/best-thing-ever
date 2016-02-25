@@ -9,7 +9,6 @@ $(document).ready(function(){
               cookieVal = 0;  //set the value to zero
           };
           var cookieValue = parseInt(cookieVal,10);  //convert it to number
-
           cookieValue++;  //increment the value
           $.cookie("cookieValue", cookieValue); //save new value
 
@@ -18,7 +17,6 @@ $(document).ready(function(){
           }
 
           if (cookieValue === 10) {
-
               $('#modal-explain').css('display', 'block');
 
               event.preventDefault();
