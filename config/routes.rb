@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   resources :users
   resources :votes, only: [:new, :create]
   resources :artists, only: [:index]
-  resources :groups, only: [:new, :create, :show, :index]
+  resources :groups, only: [:new, :create, :show, :index] do
+     resources :comments, only: [:create]
+  end
   resources :entourages, only: [:new, :create]
   resources :developers, only: [:index]
   resources :about, only: [:index]
-  resources :comments, only: [:create]
   root 'votes#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
