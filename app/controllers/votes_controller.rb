@@ -15,24 +15,37 @@ class VotesController < ApplicationController
       @prev_loser_ranking = rankings[@prev_loser.id]
     end
 
-    @option1 = Artist.get_random_artist
-    @option2 = Artist.get_random_artist
-
-    until @option1 != @option2
-      @option2 = Artist.get_random_artist
+    if !session[:next_pairs] #first visit
+      pair = Artist.get_artist_pair
+      @option1 = pair[0]
+      @option2 = pair[1]
+    else #other visits
+      @option1 =  Artist.find(session[:next_pairs][0])
+      @option2 = Artist.find(session[:next_pairs][1])
     end
-    @vote = Vote.new()
 
+    session[:id1] = @option1.id
+    session[:id2] = @option2.id
+    session_pair = Artist.get_artist_pair
+    session[:next_pairs] = [session_pair[0].id, session_pair[1].id]
+    @preload1 = Artist.find(session[:next_pairs][0])
+    @preload2 = Artist.find(session[:next_pairs][1])
+    @vote = Vote.new()
   end
 
   def create
-    @vote = Vote.new(winner_id: params[:winner], loser_id: params[:loser], user_id: session[:user_id])
-    flash[:prev_winner_id] = params[:winner]
-    flash[:prev_loser_id] = params[:loser]
-    if @vote.save
-      redirect_to root_path
+    if((params[:winner].to_s == session[:id1].to_s && params[:loser].to_s == session[:id2].to_s) ||
+      (params[:winner].to_s == session[:id2].to_s && params[:loser].to_s == session[:id1].to_s))
+      @vote = Vote.new(winner_id: params[:winner], loser_id: params[:loser], user_id: session[:user_id])
+      flash[:prev_winner_id] = params[:winner]
+      flash[:prev_loser_id] = params[:loser]
+      if @vote.save
+        redirect_to root_path
+      else
+        render new
+      end
     else
-      render new
+      render "votes/vote_hack"
     end
   end
 

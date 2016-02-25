@@ -23,26 +23,23 @@ class Artist < ActiveRecord::Base
       self.image_url =  parsed["artist"]["image"][-3]["#text"].to_s
       self.save
       self.image_url
-      # Rails.cache.write(self.image_url, image_to_base64)
-      # p "No cached image."
-      # image_to_base64
     else
-      # p "Yes cached image."
-      # Rails.cache.fetch(self.image_url)
       self.image_url
     end
   end
 
-  # def image_to_base64
-  #   uri = URI(self.image_url)
-  #   data = Net::HTTP.get(uri)
-  #   base64img = Base64.strict_encode64(data)
-  # end
-
-
   class << self
     def get_random_artist
       Artist.all.shuffle[1]
+    end
+
+    def get_artist_pair
+      artist1 = Artist.get_random_artist
+      artist2 = Artist.get_random_artist
+      until artist1 != artist2
+        artist2 = Artist.get_random_artist
+      end
+      [artist1, artist2]
     end
 
     def ranking(scores)
