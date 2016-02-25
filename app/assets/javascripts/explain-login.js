@@ -14,12 +14,16 @@ $(document).ready(function(){
               console.log(cookieValue);
               $.cookie("cookieValue", cookieValue); //save new value
 
-          if (cookieValue === 10) {
+          if (cookieValue === 98){
+            $.cookie("cookieValue", null);
+          }
+
+          if (cookieValue === 2) {
             console.log(cookieValue);
-              $.cookie("cookieValue", cookieValue, {expires: 1, path: '/'});
 
               $('#modal-explain').css('display', 'block');
 
+              event.preventDefault();
               event.stopPropagation();
 
               $('.close').on("click", function(event) {
