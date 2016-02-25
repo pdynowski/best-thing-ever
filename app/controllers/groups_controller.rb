@@ -48,10 +48,8 @@ class GroupsController < ApplicationController
       @last_votes =
       @votes.sort{|v1, v2| v2.created_at <=> v1.created_at}.shift(20).map do |vote|
         vote_set = {}
-        vote_set[:winner] = Artist.find(vote.winner_id).get_image_url
         vote_set[:winner_name] = Artist.find(vote.winner_id).name
         vote_set[:voter] = vote.user.username
-        vote_set[:loser] = Artist.find(vote.loser_id).get_image_url
         vote_set[:loser_name] = Artist.find(vote.loser_id).name
         vote_set
       end
