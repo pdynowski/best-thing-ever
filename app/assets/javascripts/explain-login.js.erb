@@ -1,0 +1,68 @@
+
+$(document).ready(function(){
+
+
+  // if("<%= @click === 1 %>"){
+//   $('#vote-area').on("click", function(event) {
+//     // event.preventDefault();
+//       $('#modal-explain').css('display', 'block');
+//     // event.stopPropagation();
+//     });
+// // };
+
+
+//   $('.close').on("click", function(event) {
+//       // "<%= @click %>" + 1;
+
+//     $('#modal-explain').css('display', 'none');
+//   });
+
+$('#vote-area').on("click", function(event) {
+  // if($.cookie('clickCount' === null)){
+  //  $.cookie('clickCount', 1);
+  // }else{
+  //   var count = $.cookie('clickCount')
+  //   $.cookie('clickCount', count++)
+  // }
+  //  // clickCount++;
+
+  //  if (jQuery.cookie('clickCount') == 2) {
+  //      $('#modal-explain').css('display', 'block');
+  //  }
+  //  // event.stopPropagation
+
+  //  $('.close').on("click", function(event) {
+
+
+  //   $('#modal-explain').css('display', 'none');
+  // });
+
+    //shortcut for document.ready
+    var cookieVal = $.cookie("cookieValue");  //grab the cookie
+    if( cookieVal === null ) {   //see if it is null
+        $.cookie( 'cookieValue', '0');  //set default value
+        cookieVal = 0;  //set the value to zero
+    };
+    var cookieValue = parseInt(cookieVal,10);  //convert it to number
+
+        cookieValue++;  //increment the value
+        console.log(cookieValue);
+        $.cookie("cookieValue", cookieValue); //save new value
+
+    if (cookieValue === 10) {
+      console.log(cookieValue);
+        $.cookie("cookieValue", cookieValue, {expires: 1, path: '/'});
+
+        $('#modal-explain').css('display', 'block');
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        $('.close').on("click", function(event) {
+          $('#modal-explain').css('display', 'none');
+        });
+    };
+});
+
+});
+
