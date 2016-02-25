@@ -50,8 +50,11 @@
 
   #hamburger-menu {
     float: right;
-    margin-top: -2px;
-    margin-right: 3px;
+    margin-top: -3px;
+  }
+
+  #dropdown {
+    margin-left: -56px;
   }
 
 }
