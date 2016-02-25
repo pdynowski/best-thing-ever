@@ -55,7 +55,7 @@
     <%= f.submit %>
   <% end %>
   <br>
-  <%= render @group.comments %>
+  <%= render @group.comments.order(created_at: :desc) %>
 </div>
 </div>
 
