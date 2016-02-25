@@ -9,19 +9,17 @@
         </div>
       </div>
       <div class="pure-u-1 user-form">
-      <!-- <h2 class='pure-button pure-button'>Log in</h2> -->
-
-      <%= form_for :session, url: sessions_path, html: {class: "pure-form pure-form-stacked"} do |f| %>
-          <div class="pure-control-group">
-            <%= f.email_field :email, placeholder: "Email" %>
-          </div>
-          <div class="pure-control-group">
-            <%= f.password_field :password, placeholder: "Password" %>
-          </div>
-          <div class="pure-control-group">
-            <%= f.submit :Login, class: 'pure-button pure-button-primary' %>
-          </div>
-      <% end %>
+        <%= form_for :session, url: sessions_path, html: {class: "pure-form pure-form-stacked"} do |f| %>
+            <div class="pure-control-group">
+              <%= f.email_field :email, placeholder: "Email" %>
+            </div>
+            <div class="pure-control-group">
+              <%= f.password_field :password, placeholder: "Password" %>
+            </div>
+            <div class="pure-control-group">
+              <%= f.submit :Login, class: 'pure-button pure-button-primary' %>
+            </div>
+        <% end %>
       </div>
     <span class='close'>x</span>
     </div>
