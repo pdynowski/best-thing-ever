@@ -36,7 +36,7 @@ gem 'faker'
 # Use Dalli for caching
 gem 'dalli'
 gem 'memcachier'
-
+gem 'jquery-cookie-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
