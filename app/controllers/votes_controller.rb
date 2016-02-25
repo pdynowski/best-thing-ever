@@ -2,19 +2,6 @@ class VotesController < ApplicationController
   require "benchmark"
   def new
 
-    # if session[:click] == nil
-    #   session[:click] = 0
-    #   # @click = 0
-    # else
-    #   # @click = 0
-    #   session[:click] += 1
-    #     if session[:click] > 1
-    #       # @click = 0
-    #       session[:click] = nil
-    #     end
-    # end
-
-
     if flash[:prev_winner_id]
       @prev_winner = Artist.find(flash[:prev_winner_id])
       @prev_loser = Artist.find(flash[:prev_loser_id])
