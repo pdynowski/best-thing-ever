@@ -7,4 +7,5 @@ describe User do
   it { should have_many(:votes) }
   it { should have_many(:entourages) }
   it { should have_many(:groups) }
+  it  {should have_many(:comments)}
 end

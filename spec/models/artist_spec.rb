@@ -5,7 +5,6 @@ describe Artist do
   it {should validate_presence_of :elo_score }
   it {should have_many(:winning_votes).class_name("Vote")}
   it {should have_many(:losing_votes).class_name("Vote")}
-  it {should have_many(:comments)}
 
   describe "#assign_elo_points at even start" do
     it "should assign the correct number of points
