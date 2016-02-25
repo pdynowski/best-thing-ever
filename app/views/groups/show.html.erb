@@ -47,5 +47,15 @@
     </div>
     <div class="pure-u-1-24"></div>
   </div>
+  <div class="pure-u-11-12">
+  <%= form_for [@group, Comment.new] do |f| %>
+    <%= f.hidden_field :group_id, value: @group.id %>
+    <%= f.hidden_field :user_id, value: session[:user_id] %>
+    <%= f.text_area :content %><br>
+    <%= f.submit %>
+  <% end %>
+  <br>
+  <%= render @group.comments %>
+</div>
 </div>
 
