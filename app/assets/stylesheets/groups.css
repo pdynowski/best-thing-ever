@@ -2,3 +2,11 @@
   height: 50px;
   width: 50px;
 }
+
+.group-winner-text {
+  color: #1F7400;
+}
+
+.group-loser-text {
+  color: #800014;
+}
