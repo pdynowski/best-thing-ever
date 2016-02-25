@@ -5,11 +5,11 @@
 </div>
 
 <div class="pure-g" id="vote-area">
-  <%= link_to votes_path(winner: @option1.id, loser: @option2.id), method: :post, :class => "option1-vote pure-u-1 pure-u-md-1-2 " do %>
+  <%= link_to votes_path(winner: @option1.id, loser: @option2.id), method: :post, :class => "option1-vote pure-u-1 pure-u-sm-1-2 " do %>
     <div id="option1" class='animated fadeIn'>
       <h1 class="option-name"><%= @option1.name %></h1>
     </div>
-  <%end%><%=link_to votes_path(winner: @option2.id, loser: @option1.id), method: :post, :class => "option2-vote pure-u-1 pure-u-md-1-2" do%>
+  <%end%><%=link_to votes_path(winner: @option2.id, loser: @option1.id), method: :post, :class => "option2-vote pure-u-1 pure-u-sm-1-2" do%>
     <div id="option2" class='animated fadeIn'>
       <h1 class="option-name"><%= @option2.name %></h1>
     </div>
