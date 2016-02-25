@@ -1,7 +1,7 @@
 class VotesController < ApplicationController
   require "benchmark"
   def new
-
+    session[:submitted] = false
     if flash[:prev_winner_id]
       @prev_winner = Artist.find(flash[:prev_winner_id])
       @prev_loser = Artist.find(flash[:prev_loser_id])
@@ -34,15 +34,21 @@ class VotesController < ApplicationController
   end
 
   def create
+
     if((params[:winner].to_s == session[:id1].to_s && params[:loser].to_s == session[:id2].to_s) ||
       (params[:winner].to_s == session[:id2].to_s && params[:loser].to_s == session[:id1].to_s))
-      @vote = Vote.new(winner_id: params[:winner], loser_id: params[:loser], user_id: session[:user_id])
-      flash[:prev_winner_id] = params[:winner]
-      flash[:prev_loser_id] = params[:loser]
-      if @vote.save
-        redirect_to root_path
+      if(session[:submitted] == false)
+        session[:submitted] = true
+        @vote = Vote.new(winner_id: params[:winner], loser_id: params[:loser], user_id: session[:user_id])
+        flash[:prev_winner_id] = params[:winner]
+        flash[:prev_loser_id] = params[:loser]
+        if @vote.save
+          redirect_to root_path
+        else
+          render new
+        end
       else
-        render new
+        render "votes/vote_hack"
       end
     else
       render "votes/vote_hack"
