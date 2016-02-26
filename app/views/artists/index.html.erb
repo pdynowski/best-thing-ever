@@ -1,9 +1,24 @@
 <div class="pure-g">
   <div class="pure-u-1-24"></div>
-  <div class="pure-u-22-24">
+  <div class="pure-u-11-24">
     <h1>Best Thing Ever Top 40</h1>
 
     <%= render partial: 'rankings_table', locals: {artists: @artists} %>
+  </div>
+  <div id="top-10-photos" class="pure-u-md-11-24">
+    <% counter=1 %>
+      <h1>Top Ten</h1>
+    <% @top_ten.each do |artist| %>
+    <div class="top-ten-text-photo">
+      <div class="top-ten-text">
+        <h4><%= counter.ordinalize %> <%= artist.name %></h4>
+      </div>
+      <div>
+        <img src="<%= artist.get_image_url %>" width=250>
+        <% counter += 1 %>
+      </div>
+    </div>
+    <% end %>
   </div>
   <div class="pure-u-1-24"></div>
 </div>
