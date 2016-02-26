@@ -57,6 +57,10 @@
     margin-left: -56px;
   }
 
+  #top-10-photos {
+    display:none;
+  }
+
 }
 
 /*Tablet*/
@@ -96,6 +100,10 @@
     height: 100%;
     width: 50vw;
   }
+
+  #top-10-photos {
+    display:none;
+  }
 }
 
 /*Big Screen*/
@@ -124,6 +132,22 @@
 
   #hamburger-menu {
     display: none;
+  }
+
+  .top-ten-text-photo{
+    display:inline-block;
+  }
+
+  .top-ten-text h4 {
+    background: rgba(0, 0, 0, 0.75);
+    padding: 4px 8px;
+    color: white;
+    margin: 0;
+    font: 14px;
+  }
+
+  .top-ten-text {
+    width: 250px;
   }
 
 }

@@ -11,6 +11,9 @@ class ArtistsController < ApplicationController
       artist_obj = Artist.find(artist[0])
       [artist_ranks[artist[0]], artist_obj.name, artist[1]]
     end
+    @top_ten = @artists[0..9].map do |artist|
+      Artist.find_by(name: artist[1])
+    end
     @artists
   end
 
