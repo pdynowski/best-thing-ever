@@ -78,14 +78,6 @@
     height: 50%;
 }
 
-#modal-explain{
-    position: fixed;
-    color: white;
-    background-color: #4c4c4c;
-    height: 30%;
-    width: 100%;
-    margin: 10% auto;
-}
 
 #modal-explain .pure-u-1 {
     position: absolute;
